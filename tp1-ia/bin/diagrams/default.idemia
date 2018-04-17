@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idemia:AgentModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:idemia="utn.frsf.cidisi">
+  <Environment name="Casa">
+    <EnvironmentState name="EstadoCasa">
+      <DataStructure name="PosicionNinio" type="Other"/>
+      <DataStructure name="ListaObstaculos" type="Other"/>
+      <DataStructure name="ListaSeniales" type="Other"/>
+      <DataStructure name="PosicionSmartToy" type="Other"/>
+    </EnvironmentState>
+  </Environment>
+  <Agent name="SmartToy">
+    <Strategy xsi:type="idemia:Search"/>
+    <Goal name="ObjetivoSmartToy" value=" PosicionNinio == PosicionActual"/>
+    <AgentState name="EstadoSmartToy">
+      <DataStructure name="ListaNodos" type="Other"/>
+      <DataStructure name="ListaArcos" type="Other"/>
+      <DataStructure name="ListaObstaculos" type="Other"/>
+      <DataStructure name="ListaVisitados" type="Other"/>
+      <DataStructure name="PosicionNinio" type="Other"/>
+      <DataStructure name="ListaSeniales" type="Other"/>
+      <DataStructure name="NodoActual" type="Other"/>
+    </AgentState>
+  </Agent>
+  <Actions execute_by="//@Agent" executed_on="//@Environment" name="IrANodo"/>
+  <Perceptions perceived_on="//@Environment" perceived_by="//@Agent" name="posicionaproxninio"/>
+  <Perceptions perceived_on="//@Environment" perceived_by="//@Agent" name="seniales"/>
+  <Perceptions perceived_on="//@Environment" perceived_by="//@Agent" name="obstaculos"/>
+</idemia:AgentModel>
