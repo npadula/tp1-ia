@@ -1,12 +1,13 @@
 package frsf.cidisi.exercise.tp1.search;
 
+import domain.Grafo;
 import frsf.cidisi.faia.state.EnvironmentState;
 
 /**
  * This class represents the real world state.
  */
 public class EstadoCasa extends EnvironmentState {
-	
+	private Grafo grafo;
 	//TODO: Setup Variables
     //private Other PosicionNinio;
     //private Other ListaObstaculos;
@@ -14,7 +15,7 @@ public class EstadoCasa extends EnvironmentState {
     //private Other PosicionSmartToy;
 	
     public EstadoCasa() {
-        
+        grafo = new Grafo();
         //TODO: Complete Method
     	/*
 			// PosicionNinio = initData0;
