@@ -1,9 +1,16 @@
 package domain;
 
 public class Transicion {
-	Nodo origen;
-	Nodo destino;
+	public Nodo origen;
+	public Nodo destino;
 	
-	int costo;
+	public int costo;
+	
+	
+	public Transicion(Nodo o, Nodo d, int costo){
+		origen = o;
+		destino = d;
+		this.costo = costo;
+	}
 
 }

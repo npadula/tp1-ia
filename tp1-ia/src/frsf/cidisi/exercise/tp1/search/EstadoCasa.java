@@ -33,6 +33,8 @@ public class EstadoCasa extends EnvironmentState {
     public void initState() {
 
         //TODO: Complete Method
+    	
+    	//eliminar las paredes. 
     }
 
     /**
