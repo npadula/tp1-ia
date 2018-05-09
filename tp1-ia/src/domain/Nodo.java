@@ -1,8 +1,8 @@
 package domain;
 
 public class Nodo {
-	String Id;
-	String sector;
+	public String Id;
+	String habitacion;
 	String tipoPiso;
 	int posX;
 	int posY;

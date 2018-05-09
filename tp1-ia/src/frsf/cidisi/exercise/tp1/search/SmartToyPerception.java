@@ -1,5 +1,10 @@
 package frsf.cidisi.exercise.tp1.search;
 
+import java.util.ArrayList;
+
+import domain.Nodo;
+import domain.Transicion;
+
 import frsf.cidisi.faia.agent.Agent;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.environment.Environment;
@@ -11,9 +16,9 @@ public class SmartToyPerception extends Perception {
 	
 	
 	//TODO: Setup Sensors
-	private int posicionaproxninio;
-	private int seniales;
-	private int obstaculos;
+	private String posicionAproximadaNinio;//recibe Habitacion 
+	private ArrayList<Nodo> seniales;
+	private ArrayList<Nodo> obstaculos;
 	
  
 
@@ -53,22 +58,22 @@ public class SmartToyPerception extends Perception {
     // The following methods are agent-specific:
     //TODO: Complete this section with the agent-specific methods
 	
-     public int getposicionaproxninio(){
+     public String getPosicionAproxNinio(){
         return posicionaproxninio;
      }
-     public void setposicionaproxninio(int arg){
+     public void getPosicionAproxNinio(int arg){
         this.posicionaproxninio = arg;
      }
-     public int getseniales(){
+     public int getsSniales(){
         return seniales;
      }
-     public void setseniales(int arg){
+     public void setsSniales(int arg){
         this.seniales = arg;
      }
-     public int getobstaculos(){
+     public int getObstaculos(){
         return obstaculos;
      }
-     public void setobstaculos(int arg){
+     public void setObstaculos(int arg){
         this.obstaculos = arg;
      }
 	

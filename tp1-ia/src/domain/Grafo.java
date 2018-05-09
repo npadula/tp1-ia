@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Grafo {
-	HashMap<Nodo,ArrayList<Transicion>> transiciones;
-	HashMap<String,Nodo> nodos;
-	int nodeSize = 25; //Tamaño del nodo en px
+	public HashMap<Nodo,ArrayList<Transicion>> transiciones;
+	public HashMap<String,Nodo> nodos;
+	public int nodeSize = 25; //Tamaño del nodo en px
 	
 	
 	public Grafo(){
@@ -17,7 +17,6 @@ public class Grafo {
 		crearNodos();
 		crearTransiciones();
 		crearParedes();
-		crearTerrenos();
 		
 	
 	}
@@ -51,7 +50,7 @@ public class Grafo {
 	}
 	
 	
-	private void crearTerrenos(){
+	public void crearTerrenos(){
 		//Modifica costos de transiciones para representar cambios en los terrenos
 		
 		//Pasto IZQ

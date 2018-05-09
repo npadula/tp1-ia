@@ -1,5 +1,9 @@
 package frsf.cidisi.exercise.tp1.search;
 
+import java.util.ArrayList;
+
+import domain.Grafo;
+import domain.Nodo;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 
@@ -9,13 +13,14 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 public class EstadoSmartToy extends SearchBasedAgentState {
 	
 	//TODO: Setup Variables
-    //private Other ListaNodos;
-    //private Other ListaArcos;
-    //private Other ListaObstaculos;
+    public Grafo grafo;
+	
+    private ArrayList<Nodo> listaObstaculos;
     //private Other ListaVisitados;
-    //private Other PosicionNinio;
-    //private Other ListaSeniales;
-    //private Other NodoActual;
+    private Nodo posicionNinio;
+    private String posicionAproximadaNinio;
+    //private Other listaSeniales;
+    public Nodo nodoActual;
 	
 
     public EstadoSmartToy() {
@@ -51,8 +56,11 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public void updateState(Perception p) {
+        SmartToyPerception perception = (SmartToyPerception) p;
         
-        //TODO: Complete Method
+        
+        
+        if(perception.)
     }
 
     /**

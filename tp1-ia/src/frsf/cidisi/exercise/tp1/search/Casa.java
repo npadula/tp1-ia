@@ -26,6 +26,15 @@ public class Casa extends Environment {
         // Create a new perception to return
          SmartToyPerception perception = new SmartToyPerception();
 		
+         EstadoCasa envState = this.getEnvironmentState();
+
+         
+         
+	    // envState.getPosicionNinio()
+        // .getListaObstaculos()
+        // .getPosicionSmartToy()
+      
+         
 		//TODO : Set the perceptions sensors
         
         // Return the perception
@@ -40,9 +49,8 @@ public class Casa extends Environment {
     
     public boolean agentFailed(Action actionReturned) {
 
-        EstadoCasa envState =
-                this.getEnvironmentState();
-
+       
+        
         // TODO: Complete Method        
 
         return false;
