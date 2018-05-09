@@ -17,17 +17,260 @@ public class Grafo {
 		crearNodos();
 		crearTransiciones();
 		crearParedes();
+		crearTerrenos();
+		
+	
+	}
+	
+	
+	private void modificarCosto(String idOrigen, String idDestino, int nuevoCosto, boolean bidireccional){
+		Nodo origen = nodos.get(idOrigen);
+		Nodo destino = nodos.get(idDestino);
+		ArrayList<Transicion> transOrigen = transiciones.get(origen);
+		ArrayList<Transicion> transDestino = transiciones.get(destino);
 		
 		
-		for (Map.Entry<String, Nodo> entry : nodos.entrySet()) {
-		    //System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
+		for(Transicion t : transOrigen){
+			if(t.destino == destino){
+				t.costo = nuevoCosto;
+				break;
+			}
 		}
+		
+		if(bidireccional){
+			for(Transicion t : transDestino){
+				if(t.destino == origen){
+					t.costo = nuevoCosto;
+					break;
+				}
+			}
+		}
+		
+		
 		
 	}
 	
 	
+	private void crearTerrenos(){
+		//Modifica costos de transiciones para representar cambios en los terrenos
+		
+		//Pasto IZQ
+		
+		modificarCosto("A1","B1",20,true);
+		modificarCosto("A2","B2",20,true);
+		modificarCosto("A3","B3",20,true);
+		modificarCosto("A4","B4",20,true);
+		modificarCosto("A5","B5",20,true);
+		modificarCosto("A6","B6",20,true);
+		modificarCosto("A7","B7",20,true);
+		modificarCosto("A8","B8",20,true);
+		modificarCosto("A9","B9",20,true);
+		modificarCosto("A10","B10",20,true);
+		modificarCosto("A11","B11",20,true);
+		modificarCosto("A12","B12",20,true);
+		modificarCosto("A13","B13",20,true);
+		modificarCosto("A14","B14",20,true);
+		modificarCosto("A15","B15",20,true);
+		modificarCosto("A16","B16",20,true);
+		modificarCosto("A17","B17",20,true);
+		modificarCosto("A18","B18",20,true);
+		modificarCosto("A19","B19",20,true);
+		modificarCosto("A20","B20",20,true);
+		modificarCosto("A21","B21",20,true);
+		modificarCosto("A22","B22",20,true);
+		modificarCosto("A23","B23",20,true);
+		modificarCosto("A24","B24",20,true);
+		modificarCosto("A25","B25",20,true);
+		modificarCosto("A26","B26",20,true);
+		modificarCosto("A27","B27",20,true);
+		modificarCosto("A28","B28",20,true);
+		modificarCosto("A29","B29",20,true);
+		modificarCosto("A30","B30",20,true);
+		modificarCosto("A31","B31",20,true);
+		modificarCosto("A32","B32",20,true);
+		modificarCosto("A33","B33",20,true);
+		
+		
+		modificarCosto("A2","A1",20,true);
+		modificarCosto("A3","A2",20,true);
+		modificarCosto("A4","A3",20,true);
+		modificarCosto("A5","A4",20,true);
+		modificarCosto("A6","A5",20,true);
+		modificarCosto("A7","A6",20,true);
+		modificarCosto("A8","A7",20,true);
+		modificarCosto("A9","A8",20,true);
+		modificarCosto("A10","A9",20,true);
+		modificarCosto("A11","A10",20,true);
+		modificarCosto("A12","A11",20,true);
+		modificarCosto("A13","A12",20,true);
+		modificarCosto("A14","A13",20,true);
+		modificarCosto("A15","A14",20,true);
+		modificarCosto("A16","A15",20,true);
+		modificarCosto("A17","A16",20,true);
+		modificarCosto("A18","A17",20,true);
+		modificarCosto("A19","A18",20,true);
+		modificarCosto("A20","A19",20,true);
+		modificarCosto("A21","A20",20,true);
+		modificarCosto("A22","A21",20,true);
+		modificarCosto("A23","A22",20,true);
+		modificarCosto("A24","A23",20,true);
+		modificarCosto("A25","A24",20,true);
+		modificarCosto("A26","A25",20,true);
+		modificarCosto("A27","A26",20,true);
+		modificarCosto("A28","A27",20,true);
+		modificarCosto("A29","A28",20,true);
+		modificarCosto("A30","A29",20,true);
+		modificarCosto("A31","A30",20,true);
+		modificarCosto("A32","A31",20,true);
+		modificarCosto("A33","A32",20,true);
+		
+		
+		modificarCosto("B2","B1",20,true);
+		modificarCosto("B3","B2",20,true);
+		modificarCosto("B4","B3",20,true);
+		modificarCosto("B5","B4",20,true);
+		modificarCosto("B6","B5",20,true);
+		modificarCosto("B7","B6",20,true);
+		modificarCosto("B8","B7",20,true);
+		modificarCosto("B9","B8",20,true);
+		modificarCosto("B10","B9",20,true);
+		modificarCosto("B11","B10",20,true);
+		modificarCosto("B12","B11",20,true);
+		modificarCosto("B13","B12",20,true);
+		modificarCosto("B14","B13",20,true);
+		modificarCosto("B15","B14",20,true);
+		modificarCosto("B16","B15",20,true);
+		modificarCosto("B17","B16",20,true);
+		modificarCosto("B18","B17",20,true);
+		modificarCosto("B19","B18",20,true);
+		modificarCosto("B20","B19",20,true);
+		modificarCosto("B21","B20",20,true);
+		modificarCosto("B22","B21",20,true);
+		modificarCosto("B23","B22",20,true);
+		modificarCosto("B24","B23",20,true);
+		modificarCosto("B25","B24",20,true);
+		modificarCosto("B26","B25",20,true);
+		modificarCosto("B27","B26",20,true);
+		modificarCosto("B28","B27",20,true);
+		modificarCosto("B29","B28",20,true);
+		modificarCosto("B30","B29",20,true);
+		modificarCosto("B31","B30",20,true);
+		modificarCosto("B32","B31",20,true);
+		modificarCosto("B33","B32",20,true);
+		
+		
+		
+		//Pasto DER
+		modificarCosto("Z1","AA1",20,true);
+		modificarCosto("Z2","AA2",20,true);
+		modificarCosto("Z3","AA3",20,true);
+		modificarCosto("Z4","AA4",20,true);
+		modificarCosto("Z5","AA5",20,true);
+		modificarCosto("Z6","AA6",20,true);
+		modificarCosto("Z7","AA7",20,true);
+		modificarCosto("Z8","AA8",20,true);
+		modificarCosto("Z9","AA9",20,true);
+		modificarCosto("Z10","AA10",20,true);
+		modificarCosto("Z11","AA11",20,true);
+		modificarCosto("Z12","AA12",20,true);
+		modificarCosto("Z13","AA13",20,true);
+		modificarCosto("Z14","AA14",20,true);
+		modificarCosto("Z15","AA15",20,true);
+		modificarCosto("Z16","AA16",20,true);
+		modificarCosto("Z17","AA17",20,true);
+		modificarCosto("Z18","AA18",20,true);
+		modificarCosto("Z19","AA19",20,true);
+		modificarCosto("Z20","AA20",20,true);
+		modificarCosto("Z21","AA21",20,true);
+		modificarCosto("Z22","AA22",20,true);
+		modificarCosto("Z23","AA23",20,true);
+		modificarCosto("Z24","AA24",20,true);
+		modificarCosto("Z25","AA25",20,true);
+		modificarCosto("Z26","AA26",20,true);
+		modificarCosto("Z27","AA27",20,true);
+		modificarCosto("Z28","AA28",20,true);
+		modificarCosto("Z29","AA29",20,true);
+		modificarCosto("Z30","AA30",20,true);
+		modificarCosto("Z31","AA31",20,true);
+		modificarCosto("Z32","AA32",20,true);
+		modificarCosto("Z33","AA33",20,true);
+		
+		
+		
+		modificarCosto("Z2","Z1",20,true);
+		modificarCosto("Z3","Z2",20,true);
+		modificarCosto("Z4","Z3",20,true);
+		modificarCosto("Z5","Z4",20,true);
+		modificarCosto("Z6","Z5",20,true);
+		modificarCosto("Z7","Z6",20,true);
+		modificarCosto("Z8","Z7",20,true);
+		modificarCosto("Z9","Z8",20,true);
+		modificarCosto("Z10","Z9",20,true);
+		modificarCosto("Z11","Z10",20,true);
+		modificarCosto("Z12","Z11",20,true);
+		modificarCosto("Z13","Z12",20,true);
+		modificarCosto("Z14","Z13",20,true);
+		modificarCosto("Z15","Z14",20,true);
+		modificarCosto("Z16","Z15",20,true);
+		modificarCosto("Z17","Z16",20,true);
+		modificarCosto("Z18","Z17",20,true);
+		modificarCosto("Z19","Z18",20,true);
+		modificarCosto("Z20","Z19",20,true);
+		modificarCosto("Z21","Z20",20,true);
+		modificarCosto("Z22","Z21",20,true);
+		modificarCosto("Z23","Z22",20,true);
+		modificarCosto("Z24","Z23",20,true);
+		modificarCosto("Z25","Z24",20,true);
+		modificarCosto("Z26","Z25",20,true);
+		modificarCosto("Z27","Z26",20,true);
+		modificarCosto("Z28","Z27",20,true);
+		modificarCosto("Z29","Z28",20,true);
+		modificarCosto("Z30","Z29",20,true);
+		modificarCosto("Z31","Z30",20,true);
+		modificarCosto("Z32","Z31",20,true);
+		modificarCosto("Z33","Z32",20,true);
+		
+		
+		modificarCosto("AA2","AA1",20,true);
+		modificarCosto("AA3","AA2",20,true);
+		modificarCosto("AA4","AA3",20,true);
+		modificarCosto("AA5","AA4",20,true);
+		modificarCosto("AA6","AA5",20,true);
+		modificarCosto("AA7","AA6",20,true);
+		modificarCosto("AA8","AA7",20,true);
+		modificarCosto("AA9","AA8",20,true);
+		modificarCosto("AA10","AA9",20,true);
+		modificarCosto("AA11","AA10",20,true);
+		modificarCosto("AA12","AA11",20,true);
+		modificarCosto("AA13","AA12",20,true);
+		modificarCosto("AA14","AA13",20,true);
+		modificarCosto("AA15","AA14",20,true);
+		modificarCosto("AA16","AA15",20,true);
+		modificarCosto("AA17","AA16",20,true);
+		modificarCosto("AA18","AA17",20,true);
+		modificarCosto("AA19","AA18",20,true);
+		modificarCosto("AA20","AA19",20,true);
+		modificarCosto("AA21","AA20",20,true);
+		modificarCosto("AA22","AA21",20,true);
+		modificarCosto("AA23","AA22",20,true);
+		modificarCosto("AA24","AA23",20,true);
+		modificarCosto("AA25","AA24",20,true);
+		modificarCosto("AA26","AA25",20,true);
+		modificarCosto("AA27","AA26",20,true);
+		modificarCosto("AA28","AA27",20,true);
+		modificarCosto("AA29","AA28",20,true);
+		modificarCosto("AA30","AA29",20,true);
+		modificarCosto("AA31","AA30",20,true);
+		modificarCosto("AA32","AA31",20,true);
+		modificarCosto("AA33","AA32",20,true);
+		
+		
+		
+	}
+	
 	
 	private void paredEntre(String idOrigen, String idDestino){
+		//Las paredes impiden el paso entre un nodo y otro, por lo cual se implementa borrando las transiciones entre dichos nodos
 		Nodo origen = nodos.get(idOrigen);
 		Nodo destino = nodos.get(idDestino);
 		
@@ -342,7 +585,116 @@ public class Grafo {
 		paredEntre("G27","G28");
 		paredEntre("H27","H28");
 		paredEntre("I27","I28");
+		
+		
+		//Pasto Arriba
+		
+		modificarCosto("B1","C1",20,true);
+		modificarCosto("C1","D1",20,true);
+		modificarCosto("D1","E1",20,true);
+		modificarCosto("E1","F1",20,true);
+		modificarCosto("F1","G1",20,true);
+		modificarCosto("G1","H1",20,true);
+		modificarCosto("H1","I1",20,true);
+		modificarCosto("I1","J1",20,true);
+		modificarCosto("J1","K1",20,true);
+		modificarCosto("K1","L1",20,true);
+		modificarCosto("L1","M1",20,true);
+		modificarCosto("M1","N1",20,true);
+		modificarCosto("N1","O1",20,true);
+		modificarCosto("O1","P1",20,true);
+		modificarCosto("P1","Q1",20,true);
+		modificarCosto("Q1","R1",20,true);
+		modificarCosto("R1","S1",20,true);
+		modificarCosto("S1","T1",20,true);
+		modificarCosto("T1","U1",20,true);
+		modificarCosto("U1","V1",20,true);
+		modificarCosto("V1","W1",20,true);
+		modificarCosto("W1","X1",20,true);
+		modificarCosto("X1","Y1",20,true);
+		modificarCosto("Y1","Z1",20,true);
+		modificarCosto("Z1","AA1",20,true);
+		
+		
+		modificarCosto("B2","C2",20,true);
+		modificarCosto("F2","G2",20,true);
+		modificarCosto("G2","H2",20,true);
+		modificarCosto("H2","I2",20,true);
+		modificarCosto("I2","J2",20,true);
+		modificarCosto("J2","K2",20,true);
+		modificarCosto("K2","L2",20,true);
+		modificarCosto("L2","M2",20,true);
+		modificarCosto("M2","N2",20,true);
+		modificarCosto("N2","O2",20,true);
+		modificarCosto("O2","P2",20,true);
+		modificarCosto("P2","Q2",20,true);
+		modificarCosto("Q2","R2",20,true);
+		modificarCosto("R2","S2",20,true);
+		modificarCosto("S2","T2",20,true);
+		modificarCosto("T2","U2",20,true);
+		modificarCosto("U2","V2",20,true);
+		modificarCosto("V2","W2",20,true);
+		modificarCosto("W2","X2",20,true);
+		modificarCosto("X2","Y2",20,true);
+		modificarCosto("Y2","Z2",20,true);
+		modificarCosto("Z2","AA2",20,true);
 
+		
+		
+		
+		//Pasto abajo
+		modificarCosto("B32","C32",20,true);
+		modificarCosto("C32","D32",20,true);
+		modificarCosto("D32","E32",20,true);
+		modificarCosto("E32","F32",20,true);
+		modificarCosto("F32","G32",20,true);
+		modificarCosto("G32","H32",20,true);
+		modificarCosto("H32","I32",20,true);
+		modificarCosto("I32","J32",20,true);
+		modificarCosto("J32","K32",20,true);
+		modificarCosto("K32","L32",20,true);
+		modificarCosto("L32","M32",20,true);
+		modificarCosto("M32","N32",20,true);
+		modificarCosto("N32","O32",20,true);
+		modificarCosto("O32","P32",20,true);
+		modificarCosto("P32","Q32",20,true);
+		modificarCosto("Q32","R32",20,true);
+		modificarCosto("R32","S32",20,true);
+		modificarCosto("S32","T32",20,true);
+		modificarCosto("T32","U32",20,true);
+		modificarCosto("U32","V32",20,true);
+		modificarCosto("V32","W32",20,true);
+		modificarCosto("W32","X32",20,true);
+		modificarCosto("X32","Y32",20,true);
+		modificarCosto("Y32","Z32",20,true);
+		modificarCosto("Z32","AA32",20,true);
+		
+		
+		modificarCosto("B33","C33",20,true);
+		modificarCosto("C33","D33",20,true);
+		modificarCosto("D33","E33",20,true);
+		modificarCosto("E33","F33",20,true);
+		modificarCosto("F33","G33",20,true);
+		modificarCosto("G33","H33",20,true);
+		modificarCosto("H33","I33",20,true);
+		modificarCosto("I33","J33",20,true);
+		modificarCosto("J33","K33",20,true);
+		modificarCosto("K33","L33",20,true);
+		modificarCosto("L33","M33",20,true);
+		modificarCosto("M33","N33",20,true);
+		modificarCosto("N33","O33",20,true);
+		modificarCosto("O33","P33",20,true);
+		modificarCosto("P33","Q33",20,true);
+		modificarCosto("Q33","R33",20,true);
+		modificarCosto("R33","S33",20,true);
+		modificarCosto("S33","T33",20,true);
+		modificarCosto("T33","U33",20,true);
+		modificarCosto("U33","V33",20,true);
+		modificarCosto("V33","W33",20,true);
+		modificarCosto("W33","X33",20,true);
+		modificarCosto("X33","Y33",20,true);
+		modificarCosto("Y33","Z33",20,true);
+		modificarCosto("Z33","AA33",20,true);
 
 
 	}
@@ -363,7 +715,7 @@ public class Grafo {
 	
 	
 	private void crearNodos(){
-		
+		//Genera nodos con su ID y su posicion en pixels
 		for(int col = 1; col <= 27; col++){
 			String letra = generarLetra(col);
 			
@@ -383,7 +735,8 @@ public class Grafo {
 	
 	
 	private void crearTransicion(Nodo origen, Nodo destino){
-		Transicion t = new Transicion(origen,destino,1); 
+		//Genera transiciones entre nodos
+		Transicion t = new Transicion(origen,destino,10); 
 		ArrayList<Transicion> salientes;
 		if (!transiciones.containsKey(origen)) {
 			 salientes = new ArrayList<Transicion>();
