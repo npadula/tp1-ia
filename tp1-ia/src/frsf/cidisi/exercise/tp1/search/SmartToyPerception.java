@@ -16,9 +16,13 @@ public class SmartToyPerception extends Perception {
 	
 	
 	//TODO: Setup Sensors
-	private String posicionAproximadaNinio;//recibe Habitacion 
-	private ArrayList<Nodo> seniales;
-	private ArrayList<Nodo> obstaculos;
+	public String posicionAproximadaNinio;//recibe Habitacion
+	public Transicion tDerecha;
+	public Transicion tIzquierda;
+	public Transicion tArriba;
+	public Transicion tAbajo;
+	//private ArrayList<Nodo> seniales;
+	//public ArrayList<Transicion> obstaculos;
 	
  
 
@@ -39,10 +43,14 @@ public class SmartToyPerception extends Perception {
     	//TODO: Complete Method
         
         //SmartToy agent = (SmartToy) agentIn;
-        //Casa environment = (Casa) environmentIn;
-        //EstadoCasa environmentState =
-        //        environment.getEnvironmentState();
-       
+        Casa environment = (Casa) environmentIn;
+        EstadoCasa estadoCasa = environment.getEnvironmentState();
+        
+        Nodo nodoAgente = estadoCasa.getPosicionSmartToy();
+        tDerecha = estadoCasa.getTransicion(nodoAgente,"derecha");
+        tIzquierda = estadoCasa.getTransicion(nodoAgente,"izquierda");
+        tAbajo = estadoCasa.getTransicion(nodoAgente,"abajo");
+        tArriba = estadoCasa.getTransicion(nodoAgente,"arriba");
         
     }
     
@@ -59,9 +67,9 @@ public class SmartToyPerception extends Perception {
     //TODO: Complete this section with the agent-specific methods
 	
      public String getPosicionAproxNinio(){
-        return posicionaproxninio;
+        return posicionAproximadaNinio;
      }
-     public void getPosicionAproxNinio(int arg){
+/*     public void getPosicionAproxNinio(int arg){
         this.posicionaproxninio = arg;
      }
      public int getsSniales(){
@@ -75,7 +83,7 @@ public class SmartToyPerception extends Perception {
      }
      public void setObstaculos(int arg){
         this.obstaculos = arg;
-     }
+     }*/
 	
    
 }

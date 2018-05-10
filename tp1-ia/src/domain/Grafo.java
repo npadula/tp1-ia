@@ -791,4 +791,72 @@ public class Grafo {
 	}
 	
 	
+	public static String getDireccion(Nodo origen, Nodo destino){
+		String letrasOrigen = "";
+		String numerosOrigen = "";
+		
+		String letrasDestino = "";
+		String numerosDestino = "";
+		
+		
+		
+		for(char c: origen.Id.toCharArray()){
+			if(!Character.isDigit(c))
+				letrasOrigen += Character.toString(c);
+			else
+				numerosOrigen += Character.toString(c);
+		}
+		
+		for(char c: destino.Id.toCharArray()){
+			if(!Character.isDigit(c))
+				letrasDestino += Character.toString(c);
+			else
+				numerosDestino += Character.toString(c);
+		}
+		
+		Integer numOrigen = Integer.parseInt(numerosOrigen);
+		Integer numDestino = Integer.parseInt(numerosDestino);
+		
+		if(numDestino > numOrigen){
+			return "abajo";
+		}
+		else if(numDestino < numOrigen)
+			return "arriba";
+		
+		if(letrasDestino.length() > letrasOrigen.length() || (letrasDestino.compareTo(letrasOrigen) > 0)){
+				return "derecha";
+		}
+			else{
+				return "izquierda";
+			}
+		
+		
+		
+		
+		
+		
+	}
+
+	public Transicion getTransicion(Nodo origen, String direccion) {
+		ArrayList<Transicion> _transiciones = transiciones.get(origen.Id);
+		for(Transicion t : _transiciones){
+			if(Grafo.getDireccion(origen, t.destino) == direccion)
+				return t;
+		}
+		return null;
+	}
+
+
+	//Actualiza la data recibida desde la percepcion
+	//Los unicos datos que pueden cambiar es si el niño esta o no realmente en esa posicion
+	public void update(Transicion nuevaTransicion) {
+		if(nuevaTransicion != null){
+			Nodo nuevoNodo = nuevaTransicion.destino;
+			
+			Nodo nodoActual = nodos.get(nuevoNodo.Id);
+			nodoActual.hayNinio = nuevoNodo.hayNinio; 
+		}
+	}
+	
+	
 }

@@ -24,7 +24,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 	
 
     public EstadoSmartToy() {
-    
+    grafo = new Grafo();
     	//TODO: Complete Method
     	/*
 			// ListaNodos = initData0;
@@ -59,8 +59,14 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         SmartToyPerception perception = (SmartToyPerception) p;
         
         
+        //Actualiza la informacion sobre si hay niño o no en los nodos cercanos
+        grafo.update(perception.tAbajo);
+        grafo.update(perception.tArriba);
+        grafo.update(perception.tIzquierda);
+        grafo.update(perception.tDerecha);
+
         
-        if(perception.)
+        //if(perception.)
     }
 
     /**

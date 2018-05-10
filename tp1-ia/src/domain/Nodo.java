@@ -2,16 +2,18 @@ package domain;
 
 public class Nodo {
 	public String Id;
-	String habitacion;
-	String tipoPiso;
-	int posX;
-	int posY;
+	public String habitacion;
+	public String tipoPiso;
+	public int posX;
+	public int posY;
+	public boolean hayNinio;
 	
 	
 	public Nodo(String id, int posX, int posY){
 		this.posX = posX;
 		this.posY = posY;
 		this.Id = id;
+		this.hayNinio = false;
 	}
 	
 	

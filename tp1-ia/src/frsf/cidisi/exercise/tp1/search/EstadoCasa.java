@@ -85,6 +85,10 @@ public class EstadoCasa extends EnvironmentState {
      public void addObstaculo(Nodo n){
     	 this.ListaObstaculos.add(n);
      }
+
+	public Transicion getTransicion(Nodo origen, String direccion) {
+		return grafo.getTransicion(origen,direccion);
+	}
 	
 
 }
