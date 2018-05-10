@@ -40,17 +40,12 @@ public class IrANodo extends SearchAction {
     	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){
     		   agState.nodoActual = t.destino;
     		   return agState;
-    		   
-    		   
     	   }
        }
         
         return null;
     }
 	
-
-	
-
     /**
      * This method updates the agent state and the real world state.
      */

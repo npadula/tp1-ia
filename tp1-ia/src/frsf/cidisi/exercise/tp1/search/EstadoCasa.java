@@ -12,7 +12,8 @@ import frsf.cidisi.faia.state.EnvironmentState;
  */
 public class EstadoCasa extends EnvironmentState {
 	private Grafo grafo;
-	private Nodo PosicionNinio;
+	private Nodo posicionNinio;//posicion actual del niño lo va a saber cuando este en un nodo adya
+	private Nodo posicionAproximada;//posicion de la puerta 
     private ArrayList<Nodo> ListaObstaculos;
     //private Other ListaSeniales;
     private Nodo PosicionSmartToy;
@@ -31,12 +32,14 @@ public class EstadoCasa extends EnvironmentState {
     @Override
     public void initState() {
     	grafo.crearTerrenos();
-        this.setPosicionNinio(grafo.nodos.get("A1")); //posicion actual del niño 
-        //ListaSeniales = new qseyo
-        this.setPosicionSmartToy(grafo.nodos.get("G8"));
-    	//Agregar obstaculos.
+        
+    	this.setPosicionNinio(grafo.nodos.get("F9"));//innecesaria 
+        grafo.nodos.get("F9").hayNinio = true; //posicion actual del niño 
+        this.setPosicionSmartToy(grafo.nodos.get("F7"));
     	
-    	 
+        //Agregar obstaculos.
+        //ListaSeniales = new qseyo
+ 	 
     }
 
     /**
@@ -55,16 +58,23 @@ public class EstadoCasa extends EnvironmentState {
     // The following methods are agent-specific:
 	
      public Nodo getPosicionNinio(){
-        return PosicionNinio;
+        return posicionNinio;
      }
      public void setPosicionNinio(Nodo arg){
-        PosicionNinio = arg;
+        posicionNinio = arg;
      }
      public  ArrayList<Nodo> getListaObstaculos(){
         return ListaObstaculos;
      }
      public void setListaObstaculos(ArrayList <Nodo> arg){
         ListaObstaculos = arg;
+     }
+     
+     public Nodo getPosicionAproximada(){
+    	 return posicionAproximada;
+     }
+     public void setPosicionAproximada(Nodo arg){
+    	 posicionAproximada = arg;
      }
      
      

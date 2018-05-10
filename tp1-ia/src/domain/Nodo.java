@@ -9,6 +9,12 @@ public class Nodo {
 	public boolean hayNinio;
 	
 	
+	public Nodo(){
+
+		this.Id= "";
+
+	}
+	
 	public Nodo(String id, int posX, int posY){
 		this.posX = posX;
 		this.posY = posY;

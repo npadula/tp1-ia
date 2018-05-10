@@ -16,7 +16,7 @@ public class SmartToyPerception extends Perception {
 	
 	
 	//TODO: Setup Sensors
-	public String posicionAproximadaNinio;//recibe Habitacion
+	public Nodo posicionAproximadaNinio;//recibe Habitacion
 	public Transicion tDerecha;
 	public Transicion tIzquierda;
 	public Transicion tArriba;
@@ -28,6 +28,11 @@ public class SmartToyPerception extends Perception {
 
     public  SmartToyPerception() {
     	//TODO: Complete Method
+    	tDerecha = new Transicion();
+    	tIzquierda = new Transicion();
+    	tArriba = new Transicion();
+    	tAbajo = new Transicion();
+    	
     }
 
     public SmartToyPerception(Agent agent, Environment environment) {
@@ -41,13 +46,15 @@ public class SmartToyPerception extends Perception {
     public void initPerception(Agent agentIn, Environment environmentIn) {
     	
     	//TODO: Complete Method
-        
+        //ACA HAY QUE DARLE LA PRIMER PERCEPCION AL AGENTE 
         //SmartToy agent = (SmartToy) agentIn;
         Casa environment = (Casa) environmentIn;
         EstadoCasa estadoCasa = environment.getEnvironmentState();
+        estadoCasa.initState();
         
         Nodo nodoAgente = estadoCasa.getPosicionSmartToy();
-        tDerecha = estadoCasa.getTransicion(nodoAgente,"derecha");
+        posicionAproximadaNinio = estadoCasa.getPosicionAproximada();
+        tDerecha = estadoCasa.getTransicion(nodoAgente, "derecha");
         tIzquierda = estadoCasa.getTransicion(nodoAgente,"izquierda");
         tAbajo = estadoCasa.getTransicion(nodoAgente,"abajo");
         tArriba = estadoCasa.getTransicion(nodoAgente,"arriba");
@@ -56,19 +63,25 @@ public class SmartToyPerception extends Perception {
     
     @Override
     public String toString() {
-        StringBuffer str = new StringBuffer();
-
-        //TODO: Complete Method
-
+        String str = "";
+        
+        
+        str += "Arriba: " + this.tArriba.destino.Id.toString() ;
+        str += "Izquierda: " + this.tIzquierda.destino.Id.toString();
+        str += "Derecha: " + this.tDerecha.destino.Id.toString();
+        str += "Abajo: " + this.tAbajo.destino.Id.toString();
+        //TODO: Complete Meth
+        
         return str.toString();
     }
 
     // The following methods are agent-specific:
     //TODO: Complete this section with the agent-specific methods
 	
-     public String getPosicionAproxNinio(){
+     public Nodo getPosicionAproxNinio(){
         return posicionAproximadaNinio;
      }
+     
 /*     public void getPosicionAproxNinio(int arg){
         this.posicionaproxninio = arg;
      }

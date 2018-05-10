@@ -12,5 +12,9 @@ public class Transicion {
 		destino = d;
 		this.costo = costo;
 	}
+	
+	public Transicion(){
+		
+	}
 
 }

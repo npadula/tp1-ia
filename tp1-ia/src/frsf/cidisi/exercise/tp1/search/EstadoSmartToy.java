@@ -1,6 +1,8 @@
 package frsf.cidisi.exercise.tp1.search;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 import domain.Grafo;
 import domain.Nodo;
@@ -12,20 +14,21 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
  */
 public class EstadoSmartToy extends SearchBasedAgentState {
 	
-	//TODO: Setup Variables
     public Grafo grafo;
-	
     private ArrayList<Nodo> listaObstaculos;
-    //private Other ListaVisitados;
     private Nodo posicionNinio;
-    private String posicionAproximadaNinio;
-    //private Other listaSeniales;
+    private Nodo posicionAproximadaNinio;
     public Nodo nodoActual;
-	
+	//private Other listaSeniales;
+	//private Other ListaVisitados;
 
     public EstadoSmartToy() {
     grafo = new Grafo();
-    	//TODO: Complete Method
+    listaObstaculos = new ArrayList<Nodo>();
+    posicionAproximadaNinio = new Nodo();
+    posicionNinio= new Nodo();
+    
+    //TODO: Complete Method
     	/*
 			// ListaNodos = initData0;
 			// ListaArcos = initData1;
@@ -45,9 +48,14 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     @Override
     public SearchBasedAgentState clone() {
         
-		//TODO: Complete Method
+		EstadoSmartToy nuevoEstado = new EstadoSmartToy(); // 
+		nuevoEstado.nodoActual = nodoActual; 
+		nuevoEstado.grafo = grafo;
+		nuevoEstado.listaObstaculos = listaObstaculos;
+		nuevoEstado.posicionAproximadaNinio = posicionAproximadaNinio;
+		nuevoEstado.posicionNinio = posicionNinio;
 		
-        return null;
+        return nuevoEstado;
     }
 
     /**
@@ -57,16 +65,22 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     @Override
     public void updateState(Perception p) {
         SmartToyPerception perception = (SmartToyPerception) p;
-        
-        
+        System.out.print(perception.toString());
+
         //Actualiza la informacion sobre si hay niño o no en los nodos cercanos
         grafo.update(perception.tAbajo);
         grafo.update(perception.tArriba);
         grafo.update(perception.tIzquierda);
         grafo.update(perception.tDerecha);
-
-        
-        //if(perception.)
+        if(perception.tAbajo.destino.hayNinio)
+        	posicionNinio = perception.tAbajo.destino;
+        if(perception.tArriba.destino.hayNinio)
+        	posicionNinio = perception.tArriba.destino;
+        if(perception.tIzquierda.destino.hayNinio)
+        	posicionNinio = perception.tIzquierda.destino;
+        if(perception.tDerecha.destino.hayNinio)
+        	posicionNinio = perception.tDerecha.destino;
+        //if(perception)
     }
 
     /**
@@ -74,9 +88,9 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public void initState() {
-        
-	//TODO: Complete Method
-
+    	//inicializar lo que conoce el agento al inicio 
+    	//listaObstaculos.add(new Nodo("A22")); 
+    	nodoActual =  grafo.nodos.get("F7");
     }
 
     /**
@@ -97,10 +111,21 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public boolean equals(Object obj) {
-       
-       //TODO: Complete Method
-        
-        return true;
+    	
+    	 EstadoSmartToy estadoComparado = (EstadoSmartToy) obj; 
+    	 boolean mismaPosicion = estadoComparado.nodoActual.Id.equals(nodoActual.Id);
+    	 //boolean mismoMundo = estadoComparado.grafo == grafo;
+    	 boolean mismoMundo = true;
+    	 Iterator it = estadoComparado.grafo.nodos.entrySet().iterator();
+    	    while (it.hasNext()) {
+    	        Map.Entry pair = (Map.Entry)it.next();
+    	        if((Nodo)pair.getValue() == grafo.nodos.get(pair.getKey()))
+    	        	mismoMundo = false;
+    	        System.out.println(pair.getKey() + " = " + pair.getValue());
+    	        it.remove(); // avoids a ConcurrentModificationException
+    	    }
+    	  
+    	 return mismaPosicion && mismoMundo;
     }
 
     //TODO: Complete this section with agent-specific methods
@@ -130,12 +155,12 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 //     public void setListaVisitados(Other arg){
 //        ListaVisitados = arg;
 //     }
-//     public Other getPosicionNinio(){
-//        return PosicionNinio;
-//     }
-//     public void setPosicionNinio(Other arg){
-//        PosicionNinio = arg;
-//     }
+     public Nodo getPosicionNinio(){
+        return posicionNinio;
+     }
+     public void setPosicionNinio(Nodo arg){
+        posicionNinio = arg;
+     }
 //     public Other getListaSeniales(){
 //        return ListaSeniales;
 //     }

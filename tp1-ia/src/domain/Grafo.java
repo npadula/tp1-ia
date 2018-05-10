@@ -784,9 +784,6 @@ public class Grafo {
 			
 		}
 		
-		 
-		
-
 		
 	}
 	
@@ -831,18 +828,15 @@ public class Grafo {
 			}
 		
 		
-		
-		
-		
-		
 	}
 
 	public Transicion getTransicion(Nodo origen, String direccion) {
-		ArrayList<Transicion> _transiciones = transiciones.get(origen.Id);
-		for(Transicion t : _transiciones){
-			if(Grafo.getDireccion(origen, t.destino) == direccion)
-				return t;
-		}
+		ArrayList<Transicion> _transiciones = transiciones.get(origen);
+			for(Transicion t : _transiciones){
+				if(Grafo.getDireccion(origen, t.destino) == direccion)
+					return t;
+			}
+
 		return null;
 	}
 

@@ -27,7 +27,13 @@ public class Casa extends Environment {
          SmartToyPerception perception = new SmartToyPerception();
 		
          EstadoCasa envState = this.getEnvironmentState();
-
+         
+         perception.posicionAproximadaNinio = envState.getPosicionAproximada();// no se si es necesario porque no cambia 
+         perception.tDerecha = envState.getTransicion(envState.getPosicionSmartToy(),"derecha");
+         perception.tIzquierda = envState.getTransicion(envState.getPosicionSmartToy(),"izquierda");
+         perception.tAbajo = envState.getTransicion(envState.getPosicionSmartToy(),"abajo");
+         perception.tArriba = envState.getTransicion(envState.getPosicionSmartToy(),"arriba");
+         
          
          
 	    // envState.getPosicionNinio()
