@@ -9,9 +9,30 @@ public class Grafo {
 	public HashMap<String,ArrayList<Transicion>> transiciones;
 	public HashMap<String,Nodo> nodos;
 	public int nodeSize = 25; //Tamaño del nodo en px
+	public int colSize;
+	public int rowSize;
+	
+	
+	public Grafo(int col, int row){
+		colSize = col;
+		rowSize = row;
+		
+		nodos = new HashMap<String,Nodo>();
+		transiciones = new HashMap<String,ArrayList<Transicion>>();
+		
+		//System.out.println("Creando nodos");
+		crearNodos();
+		//System.out.println("Creando transiciones");
+		crearTransiciones();
+		//System.out.println("Creando paredes");
+		if(rowSize >= 33 || colSize >= 27)
+		crearParedes();
+	}
 	
 	
 	public Grafo(){
+		colSize = 27;
+		rowSize = 33;
 		nodos = new HashMap<String,Nodo>();
 		transiciones = new HashMap<String,ArrayList<Transicion>>();
 		
@@ -34,7 +55,7 @@ public class Grafo {
 		
 		
 		for(Transicion t : transOrigen){
-			if(t.destino == destino){
+			if(t.destino.equals(destino)){
 				t.costo = nuevoCosto;
 				break;
 			}
@@ -42,7 +63,7 @@ public class Grafo {
 		
 		if(bidireccional){
 			for(Transicion t : transDestino){
-				if(t.destino == origen){
+				if(t.destino.equals(origen)){
 					t.costo = nuevoCosto;
 					break;
 				}
@@ -282,7 +303,7 @@ public class Grafo {
 		for(int i = 0; i < transicionesDeOrigen.size(); i++){
 			Transicion t = transicionesDeOrigen.get(i);
 			
-			if(t.destino == destino){
+			if(t.destino.equals(destino)){
 				transicionesDeOrigen.remove(t);
 				break;
 			}
@@ -293,7 +314,7 @@ public class Grafo {
 		for(int i = 0; i < transicionesDeDestino.size(); i++){
 			Transicion t = transicionesDeDestino.get(i);
 			
-			if(t.destino == origen){
+			if(t.destino.equals(origen)){
 				transicionesDeDestino.remove(t);
 				break;
 			}
@@ -302,7 +323,7 @@ public class Grafo {
 		
 	}
 	
-	private void crearParedes(){
+	protected void crearParedes(){
 		paredEntre("C2","C3");
 		
 		
@@ -702,7 +723,7 @@ public class Grafo {
 
 	}
 	
-	private String generarLetra(int num){
+	public String generarLetra(int num){
 		String letra = "";
 		int codigoLetra = 64 + num;
 		if(num > 26){
@@ -717,12 +738,12 @@ public class Grafo {
 	}
 	
 	
-	private void crearNodos(){
+	protected void crearNodos(){
 		//Genera nodos con su ID y su posicion en pixels
-		for(int col = 1; col <= 27; col++){
+		for(int col = 1; col <= colSize; col++){
 			String letra = generarLetra(col);
 			
-			for(int fila = 1; fila<= 33; fila++){
+			for(int fila = 1; fila<= rowSize; fila++){
 				String idNodo = letra + Integer.toString(fila);
 				
 				int posX = nodeSize * (col - 1);
@@ -753,14 +774,14 @@ public class Grafo {
 		}
 	}
 	
-	private void crearTransiciones(){
+	protected void crearTransiciones(){
 		
 		String letraAnterior ="";
 		
-		for(int col = 1; col <= 27; col++){
+		for(int col = 1; col <= colSize; col++){
 			String letra = generarLetra(col);
 			
-			for(int fila = 1; fila<= 33; fila++){
+			for(int fila = 1; fila<= rowSize; fila++){
 				
 				String idNodoActual = letra + Integer.toString(fila);
 				String idNodoSuperior = letra + Integer.toString(fila-1);
@@ -837,7 +858,7 @@ public class Grafo {
 	public Transicion getTransicion(Nodo origen, String direccion) {
 		ArrayList<Transicion> _transiciones = transiciones.get(origen.Id);
 			for(Transicion t : _transiciones){
-				if(Grafo.getDireccion(origen, t.destino) == direccion)
+				if(Grafo.getDireccion(origen, t.destino).equals(direccion))
 					return t;
 			}
 
@@ -861,7 +882,7 @@ public class Grafo {
 			
 			
 			for(Transicion t : transicionesDeOrigen){
-				if(t.destino.Id == nuevoNodo.Id)
+				if(t.destino.Id.equals(nuevoNodo.Id))
 					t.costo = nuevaTransicion.costo;
 			}
 			
@@ -869,10 +890,8 @@ public class Grafo {
 		}
 	}
 	
-	
-	
 	public Grafo clone(){
-		Grafo g = new Grafo();
+		Grafo g = new Grafo(colSize, rowSize);
 		
 		for(Nodo n : nodos.values()){
 			ArrayList<Transicion> transicionesDeN = transiciones.get(n.Id);
@@ -892,19 +911,15 @@ public class Grafo {
 		
 	}
 
-
 	public Transicion getTransicion(String idOrigen, String idDestino) {
 		ArrayList<Transicion> transDeOrigen = transiciones.get(idOrigen);
 		
 		for(Transicion t : transDeOrigen){
-			if(t.destino.Id == idDestino)
+			if(t.destino.Id.equals(idDestino))
 				return t;
 		}
 		return null;
 	}
 	
-	public void graficarGrafo(){
-		
-	}
-	
+
 }

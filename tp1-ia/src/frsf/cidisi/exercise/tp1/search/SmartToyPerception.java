@@ -66,10 +66,10 @@ public class SmartToyPerception extends Perception {
         String str = "";
         
         
-        str += "Arriba: " + this.tArriba.destino.Id.toString() ;
-        str += "Izquierda: " + this.tIzquierda.destino.Id.toString();
-        str += "Derecha: " + this.tDerecha.destino.Id.toString();
-        str += "Abajo: " + this.tAbajo.destino.Id.toString();
+        str += "Arriba: " + (this.tArriba != null ?  this.tArriba.destino.Id.toString() : "NULL" );
+        str += "Izquierda: " + (this.tIzquierda != null ?  this.tIzquierda.destino.Id.toString() : "NULL" );
+        str += "Derecha: " + (this.tDerecha!= null ?  this.tDerecha.destino.Id.toString() : "NULL" );
+        str += "Abajo: " + (this.tAbajo != null ?  this.tAbajo.destino.Id.toString() : "NULL" );
         //TODO: Complete Meth
         
         return str.toString();

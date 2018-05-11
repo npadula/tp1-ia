@@ -19,7 +19,8 @@ public class EstadoCasa extends EnvironmentState {
     private Nodo PosicionSmartToy;
 	
     public EstadoCasa() {
-        grafo = new Grafo();
+        grafo= new Grafo(3,3);
+    	//grafo = new Grafo3PorTres();
         ListaObstaculos = new ArrayList<Nodo>();//Llenar 
         //ListaSeniales
         
@@ -33,14 +34,13 @@ public class EstadoCasa extends EnvironmentState {
     public void initState() {
     	System.out.println("Inicializando estado casa");
     	System.out.println("Creando terrenos");
-    	grafo.crearTerrenos();
+    	//grafo.crearTerrenos();
         
-    	this.setPosicionNinio(grafo.nodos.get("F9"));//innecesaria  
-        grafo.nodos.get("F9").hayNinio = true; //posicion actual del niño 
-        this.setPosicionSmartToy(grafo.nodos.get("F7"));
+    	this.setPosicionNinio(grafo.nodos.get("B2"));//innecesaria  
+        grafo.nodos.get("B2").hayNinio = true; //posicion actual del niño 
+        this.setPosicionSmartToy(grafo.nodos.get("C3"));
     	
-        //Agregar obstaculos.
-        //ListaSeniales = new qseyo
+        graficarEstadoCasa();
  	 
     }
 
@@ -108,6 +108,29 @@ public class EstadoCasa extends EnvironmentState {
 		return grafo.getTransicion(origen,direccion);
 	}
 	
+	public void graficarEstadoCasa(){
+		String str="ESTADO CASA : \n";
+		int colSize = grafo.colSize;
+		int rowSize = grafo.rowSize;
+		
+		for(int col = 1; col <= colSize; col++){
+			String letra = grafo.generarLetra(col);
+			
+			for(int fila = 1; fila<= rowSize; fila++){
+				String idNodo = letra + Integer.toString(fila);
+				Nodo aux = this.grafo.nodos.get(idNodo);
+				if(idNodo.equals(this.PosicionSmartToy.Id))
+					str+= idNodo + ":" + 1;
+				else if(aux.hayNinio == true)
+					str+= idNodo + ":" + 2;
+				else
+					str+= idNodo + ":" + 0;
+				str+= " | ";
+			}
+			str+= "\n"; 
+		}
+		System.out.println(str);
+	}
 
 }
 

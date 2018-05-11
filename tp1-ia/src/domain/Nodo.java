@@ -25,7 +25,14 @@ public class Nodo {
 	
 	@Override
 	public String toString(){
-		
 		return "Nodo: " + Id + " X: " + "\n";
+	}
+	
+	@Override
+	public boolean equals(Object n){
+			
+		Nodo nodo = (Nodo) n;
+		
+		return nodo.Id.equals(Id) && (nodo.hayNinio == hayNinio);
 	}
 }

@@ -28,7 +28,7 @@ public class IrANodo extends SearchAction {
     public SearchBasedAgentState execute(SearchBasedAgentState s) {
 		System.out.println("Execute pensar");
         EstadoSmartToy agState = (EstadoSmartToy) s;
-        
+        // METODO QUE PIENSA 
         // TODO: Use this conditions
         // PreConditions: null
         // PostConditions: null
@@ -38,9 +38,12 @@ public class IrANodo extends SearchAction {
        ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual.Id);
        
        for(Transicion t : caminosPosibles){
-    	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){
+    	   if(Grafo.getDireccion(nodoActual,t.destino).equals(direccion)){
     		   agState.nodoActual = t.destino;
     		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
+    		   //agState.grafo.graficarGrafo(t.destino.Id);
+    		   System.out.println(agState.nodoActual.Id.equals(t.destino.Id)); 
+    		   agState.graficarEstadoSmartToy();
     		   return agState;
     	   }
        }
@@ -53,7 +56,7 @@ public class IrANodo extends SearchAction {
      */
     @Override
     public EnvironmentState execute(AgentState ast, EnvironmentState est) {
-    	System.out.println("Execute actuar");
+    	System.out.println("Execute actuar" + direccion);
         EstadoCasa environmentState = (EstadoCasa) est;
         EstadoSmartToy agState = ((EstadoSmartToy) ast);
         
@@ -62,7 +65,7 @@ public class IrANodo extends SearchAction {
         ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual.Id);
         
         for(Transicion t : caminosPosibles){
-     	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){
+     	   if(Grafo.getDireccion(nodoActual,t.destino).equals(direccion)){
      		   agState.nodoActual = t.destino;
      		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
      		  environmentState.setPosicionSmartToy(t.destino);
