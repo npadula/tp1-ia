@@ -23,6 +23,20 @@ public class Nodo {
 	}
 	
 	
+	public Nodo clone(){
+		Nodo nuevo = new Nodo();
+		
+		
+		nuevo.Id = this.Id;
+		nuevo.hayNinio = this.hayNinio;
+		nuevo.posX = this.posX;
+		nuevo.posY = this.posY;
+		nuevo.habitacion = this.habitacion;
+		nuevo.tipoPiso = this.tipoPiso;
+		
+		return nuevo;
+	}
+	
 	@Override
 	public String toString(){
 		return "Nodo: " + Id + " X: " + "\n";

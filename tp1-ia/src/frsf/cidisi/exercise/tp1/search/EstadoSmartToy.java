@@ -19,16 +19,20 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     private Nodo posicionNinio;
     private Nodo posicionAproximadaNinio;
     public Nodo nodoActual;
+    public ArrayList<String> visitados;
+    boolean aproxVisitado = false;
 	//private Other listaSeniales;
 	//private Other ListaVisitados;
 
     public EstadoSmartToy() {
-    	System.out.println("Constructor Estado Agente");
-    grafo= new Grafo(3,3);
+    	//System.out.println("Constructor Estado Agente");
+    grafo= new Grafo(27,33);
     	//grafo = new Grafo3PorTres();
     listaObstaculos = new ArrayList<Nodo>();
     posicionAproximadaNinio = new Nodo();
     posicionNinio= new Nodo();
+    visitados = new ArrayList<String>();
+    
     
     //TODO: Complete Method
     	/*
@@ -80,16 +84,34 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         grafo.update(perception.tArriba);
         grafo.update(perception.tIzquierda);
         grafo.update(perception.tDerecha);
-        if(perception.tAbajo != null &&  perception.tAbajo.destino.hayNinio)
-        	posicionNinio = perception.tAbajo.destino;
-        if(perception.tArriba != null && perception.tArriba.destino.hayNinio)
-        	posicionNinio = perception.tArriba.destino;
-        if(perception.tIzquierda != null && perception.tIzquierda.destino.hayNinio)
-        	posicionNinio = perception.tIzquierda.destino;
-        if(perception.tDerecha != null && perception.tDerecha.destino.hayNinio)
-        	posicionNinio = perception.tDerecha.destino;
         
-        graficarEstadoSmartToy();
+        if(perception.tAbajo != null){
+        	if(perception.tAbajo.destino.Id.equals(posicionNinio))
+        		aproxVisitado = true;
+        	if(perception.tAbajo.destino.hayNinio)
+        		posicionNinio = perception.tAbajo.destino;
+        }
+        if(perception.tArriba != null ){
+        	if(perception.tArriba.destino.equals(posicionNinio))
+        		aproxVisitado = true;
+        	if(perception.tArriba.destino.hayNinio)
+        		posicionNinio = perception.tArriba.destino;
+        	}
+        if(perception.tIzquierda != null){
+        	if(perception.tIzquierda.destino.equals(posicionNinio))
+        		aproxVisitado = true;
+        	if(perception.tIzquierda.destino.hayNinio)
+        		posicionNinio = perception.tIzquierda.destino;
+        	}
+        if(perception.tDerecha != null){
+        	if(perception.tDerecha.destino.equals(posicionNinio))
+        		aproxVisitado = true;
+        	
+        	if(perception.tDerecha.destino.hayNinio)
+        		posicionNinio = perception.tDerecha.destino;
+        	}
+        
+        //graficarEstadoSmartToy();
     }
 
     /**
@@ -99,8 +121,9 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public void initState() {
     	//inicializar lo que conoce el agento al inicio 
     	//listaObstaculos.add(new Nodo("A22")); 
-    	posicionNinio = null;
-    	nodoActual =  grafo.nodos.get("C3");
+    	posicionNinio = new Nodo("A3",0,0);
+    	
+    	nodoActual =  grafo.nodos.get("C8");
     }
 
     /**

@@ -19,7 +19,7 @@ public class EstadoCasa extends EnvironmentState {
     private Nodo PosicionSmartToy;
 	
     public EstadoCasa() {
-        grafo= new Grafo(3,3);
+        grafo= new Grafo(27,33);
     	//grafo = new Grafo3PorTres();
         ListaObstaculos = new ArrayList<Nodo>();//Llenar 
         //ListaSeniales
@@ -38,7 +38,7 @@ public class EstadoCasa extends EnvironmentState {
         
     	this.setPosicionNinio(grafo.nodos.get("B2"));//innecesaria  
         grafo.nodos.get("B2").hayNinio = true; //posicion actual del niño 
-        this.setPosicionSmartToy(grafo.nodos.get("C3"));
+        this.setPosicionSmartToy(grafo.nodos.get("C8"));
     	
         graficarEstadoCasa();
  	 

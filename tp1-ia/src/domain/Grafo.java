@@ -872,8 +872,9 @@ public class Grafo {
 			Nodo nuevoNodo = nuevaTransicion.destino;
 			
 			//Actualiza si el niño esta o no en el nodo destino
-			Nodo nodoActual = nodos.get(nuevoNodo.Id);
-			nodoActual.hayNinio = nuevoNodo.hayNinio; 
+			Nodo nodoActual = nuevoNodo.clone();
+			//nodoActual = nodos.get(nuevoNodo.Id);
+			//nodoActual.hayNinio = nuevoNodo.hayNinio; 
 			
 			
 			//Actualiza costo de la transicion (terreno)
