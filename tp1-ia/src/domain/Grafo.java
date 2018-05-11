@@ -729,7 +729,7 @@ public class Grafo {
 				int posY = nodeSize * fila;
 				
 
-				 nodos.put(idNodo,new Nodo(idNodo,posX,posY));
+				 nodos.put(idNodo,new Nodo(idNodo,posX,posY)); // crear neuvo nodo 0
 				
 			}
 		}
@@ -887,7 +887,7 @@ public class Grafo {
 			}
 		}
 		
-		return g;
+		return g; 
 	  
 		
 	}
@@ -901,6 +901,10 @@ public class Grafo {
 				return t;
 		}
 		return null;
+	}
+	
+	public void graficarGrafo(){
+		
 	}
 	
 }

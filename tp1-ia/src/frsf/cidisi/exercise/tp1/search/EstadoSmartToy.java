@@ -180,5 +180,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 //        NodoActual = arg;
 //     }
 	
+     
+      //public  
 }
 
