@@ -2,6 +2,8 @@ package frsf.cidisi.exercise.tp1.search;
 
 import java.util.ArrayList;
 
+import pruebas.Grafo3PorTres;
+
 import domain.Grafo;
 import domain.Nodo;
 import domain.Transicion;
@@ -19,7 +21,8 @@ public class EstadoCasa extends EnvironmentState {
     private Nodo PosicionSmartToy;
 	
     public EstadoCasa() {
-        grafo = new Grafo();
+        grafo= new Grafo(3,3);
+    	//grafo = new Grafo3PorTres();
         ListaObstaculos = new ArrayList<Nodo>();//Llenar 
         //ListaSeniales
         
@@ -33,11 +36,11 @@ public class EstadoCasa extends EnvironmentState {
     public void initState() {
     	System.out.println("Inicializando estado casa");
     	System.out.println("Creando terrenos");
-    	grafo.crearTerrenos();
+    	//grafo.crearTerrenos();
         
-    	this.setPosicionNinio(grafo.nodos.get("F9"));//innecesaria  
-        grafo.nodos.get("F9").hayNinio = true; //posicion actual del niño 
-        this.setPosicionSmartToy(grafo.nodos.get("F7"));
+    	this.setPosicionNinio(grafo.nodos.get("B2"));//innecesaria  
+        grafo.nodos.get("B2").hayNinio = true; //posicion actual del niño 
+        this.setPosicionSmartToy(grafo.nodos.get("C3"));
     	
         //Agregar obstaculos.
         //ListaSeniales = new qseyo

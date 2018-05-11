@@ -9,9 +9,30 @@ public class Grafo {
 	public HashMap<String,ArrayList<Transicion>> transiciones;
 	public HashMap<String,Nodo> nodos;
 	public int nodeSize = 25; //Tamaño del nodo en px
+	public int colSize;
+	public int rowSize;
+	
+	
+	public Grafo(int col, int row){
+		colSize = col;
+		rowSize = row;
+		
+		nodos = new HashMap<String,Nodo>();
+		transiciones = new HashMap<String,ArrayList<Transicion>>();
+		
+		//System.out.println("Creando nodos");
+		crearNodos();
+		//System.out.println("Creando transiciones");
+		crearTransiciones();
+		//System.out.println("Creando paredes");
+		if(rowSize >= 33 || colSize >= 27)
+		crearParedes();
+	}
 	
 	
 	public Grafo(){
+		colSize = 27;
+		rowSize = 33;
 		nodos = new HashMap<String,Nodo>();
 		transiciones = new HashMap<String,ArrayList<Transicion>>();
 		
@@ -302,7 +323,7 @@ public class Grafo {
 		
 	}
 	
-	private void crearParedes(){
+	protected void crearParedes(){
 		paredEntre("C2","C3");
 		
 		
@@ -717,12 +738,12 @@ public class Grafo {
 	}
 	
 	
-	private void crearNodos(){
+	protected void crearNodos(){
 		//Genera nodos con su ID y su posicion en pixels
-		for(int col = 1; col <= 27; col++){
+		for(int col = 1; col <= colSize; col++){
 			String letra = generarLetra(col);
 			
-			for(int fila = 1; fila<= 33; fila++){
+			for(int fila = 1; fila<= rowSize; fila++){
 				String idNodo = letra + Integer.toString(fila);
 				
 				int posX = nodeSize * (col - 1);
@@ -753,14 +774,14 @@ public class Grafo {
 		}
 	}
 	
-	private void crearTransiciones(){
+	protected void crearTransiciones(){
 		
 		String letraAnterior ="";
 		
-		for(int col = 1; col <= 27; col++){
+		for(int col = 1; col <= colSize; col++){
 			String letra = generarLetra(col);
 			
-			for(int fila = 1; fila<= 33; fila++){
+			for(int fila = 1; fila<= rowSize; fila++){
 				
 				String idNodoActual = letra + Integer.toString(fila);
 				String idNodoSuperior = letra + Integer.toString(fila-1);
@@ -872,7 +893,7 @@ public class Grafo {
 	
 	
 	public Grafo clone(){
-		Grafo g = new Grafo();
+		Grafo g = new Grafo(colSize, rowSize);
 		
 		for(Nodo n : nodos.values()){
 			ArrayList<Transicion> transicionesDeN = transiciones.get(n.Id);
@@ -903,4 +924,21 @@ public class Grafo {
 		return null;
 	}
 	
+	public void graficarGrafo(String idActual){
+		String str="";
+		for(int col = 1; col <= colSize; col++){
+			String letra = generarLetra(col);
+			
+			for(int fila = 1; fila<= rowSize; fila++){
+				String idNodo = letra + Integer.toString(fila);
+				if(idNodo == idActual)
+					str+= idNodo + ":" + 1;
+				else 
+					str+= idNodo + ":" + 0;
+				str+= " | ";
+			}
+			str+= "\n"; 
+		}
+		System.out.println(str);
+	}
 }

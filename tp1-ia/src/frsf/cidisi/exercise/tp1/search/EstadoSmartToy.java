@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
+import pruebas.Grafo3PorTres;
+
 import domain.Grafo;
 import domain.Nodo;
 import frsf.cidisi.faia.agent.Perception;
@@ -24,7 +26,8 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 
     public EstadoSmartToy() {
     	System.out.println("Constructor Estado Agente");
-    grafo = new Grafo();
+    grafo= new Grafo(3,3);
+    	//grafo = new Grafo3PorTres();
     listaObstaculos = new ArrayList<Nodo>();
     posicionAproximadaNinio = new Nodo();
     posicionNinio= new Nodo();
@@ -52,11 +55,15 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public SearchBasedAgentState clone() {
         
 		EstadoSmartToy nuevoEstado = new EstadoSmartToy(); // 
-		nuevoEstado.nodoActual = nodoActual; 
 		nuevoEstado.grafo = grafo.clone();
-		nuevoEstado.listaObstaculos = listaObstaculos;
+		nuevoEstado.nodoActual = nuevoEstado.grafo.nodos.get(nodoActual.Id); 
 		nuevoEstado.posicionAproximadaNinio = posicionAproximadaNinio;
 		nuevoEstado.posicionNinio = posicionNinio;
+		
+		nuevoEstado.listaObstaculos = listaObstaculos;
+		
+		
+		
 		
         return nuevoEstado;
     }
@@ -75,13 +82,13 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         grafo.update(perception.tArriba);
         grafo.update(perception.tIzquierda);
         grafo.update(perception.tDerecha);
-        if(perception.tAbajo.destino.hayNinio)
+        if(perception.tAbajo != null &&  perception.tAbajo.destino.hayNinio)
         	posicionNinio = perception.tAbajo.destino;
-        if(perception.tArriba.destino.hayNinio)
+        if(perception.tArriba != null && perception.tArriba.destino.hayNinio)
         	posicionNinio = perception.tArriba.destino;
-        if(perception.tIzquierda.destino.hayNinio)
+        if(perception.tIzquierda != null && perception.tIzquierda.destino.hayNinio)
         	posicionNinio = perception.tIzquierda.destino;
-        if(perception.tDerecha.destino.hayNinio)
+        if(perception.tDerecha != null && perception.tDerecha.destino.hayNinio)
         	posicionNinio = perception.tDerecha.destino;
         //if(perception)
     }
@@ -94,7 +101,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     	//inicializar lo que conoce el agento al inicio 
     	//listaObstaculos.add(new Nodo("A22")); 
     	posicionNinio = null;
-    	nodoActual =  grafo.nodos.get("F7");
+    	nodoActual =  grafo.nodos.get("C3");
     }
 
     /**
@@ -173,12 +180,12 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 //     public void setListaSeniales(Other arg){
 //        ListaSeniales = arg;
 //     }
-//     public Other getNodoActual(){
-//        return NodoActual;
-//     }
-//     public void setNodoActual(Other arg){
-//        NodoActual = arg;
-//     }
+     public Nodo getNodoActual(){
+      return nodoActual;
+     }
+     public void setNodoActual(Nodo arg){
+      nodoActual = arg;
+    }
 	
 }
 

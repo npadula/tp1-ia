@@ -41,6 +41,9 @@ public class IrANodo extends SearchAction {
     	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){
     		   agState.nodoActual = t.destino;
     		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
+    		   //agState.grafo.graficarGrafo(t.destino.Id);
+    		   System.out.println(agState.nodoActual.Id == t.destino.Id); 
+    		   
     		   return agState;
     	   }
        }
@@ -53,7 +56,7 @@ public class IrANodo extends SearchAction {
      */
     @Override
     public EnvironmentState execute(AgentState ast, EnvironmentState est) {
-    	System.out.println("Execute actuar");
+    	System.out.println("Execute actuar" + direccion);
         EstadoCasa environmentState = (EstadoCasa) est;
         EstadoSmartToy agState = ((EstadoSmartToy) ast);
         
