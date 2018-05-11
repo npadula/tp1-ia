@@ -12,7 +12,7 @@ public class ObjetivoSmartToy extends GoalTest {
     	EstadoSmartToy estadoSmartToy = (EstadoSmartToy) agentState;
     	
     	// TODO: Complete Method
-    	Boolean ninioArriba = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "arriba").destino.hayNinio; 	
+    	/*Boolean ninioArriba = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "arriba").destino.hayNinio; 	
     	Boolean ninioAbajo = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "abajo").destino.hayNinio;
     	Boolean ninioIzquierda = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "izquierda").destino.hayNinio;
     	Boolean ninioDerecha = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "derecha").destino.hayNinio;
@@ -20,13 +20,13 @@ public class ObjetivoSmartToy extends GoalTest {
         	{
             return true;
         	}
-        return false;
+        return false;*/
         //opcion 2 
 
-        /*if(estadoSmartToy.getPosicionNinio() == null){
+        if(estadoSmartToy.getPosicionNinio() != null){
         	return true;
         }else{
         	return false;
-        }*/
+        }
 	}
 }

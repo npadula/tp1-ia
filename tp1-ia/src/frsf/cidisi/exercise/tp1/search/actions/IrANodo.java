@@ -34,7 +34,7 @@ public class IrANodo extends SearchAction {
         
         
        Nodo nodoActual = agState.nodoActual;
-       ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual);
+       ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual.Id);
        
        for(Transicion t : caminosPosibles){
     	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){

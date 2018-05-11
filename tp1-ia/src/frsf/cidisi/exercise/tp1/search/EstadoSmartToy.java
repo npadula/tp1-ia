@@ -90,6 +90,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public void initState() {
     	//inicializar lo que conoce el agento al inicio 
     	//listaObstaculos.add(new Nodo("A22")); 
+    	posicionNinio = null;
     	nodoActual =  grafo.nodos.get("F7");
     }
 

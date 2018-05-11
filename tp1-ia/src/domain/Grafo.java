@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Grafo {
-	public HashMap<Nodo,ArrayList<Transicion>> transiciones;
+	public HashMap<String,ArrayList<Transicion>> transiciones;
 	public HashMap<String,Nodo> nodos;
 	public int nodeSize = 25; //Tamaño del nodo en px
 	
 	
 	public Grafo(){
 		nodos = new HashMap<String,Nodo>();
-		transiciones = new HashMap<Nodo,ArrayList<Transicion>>();
+		transiciones = new HashMap<String,ArrayList<Transicion>>();
 		
 		crearNodos();
 		crearTransiciones();
@@ -25,8 +25,8 @@ public class Grafo {
 	private void modificarCosto(String idOrigen, String idDestino, int nuevoCosto, boolean bidireccional){
 		Nodo origen = nodos.get(idOrigen);
 		Nodo destino = nodos.get(idDestino);
-		ArrayList<Transicion> transOrigen = transiciones.get(origen);
-		ArrayList<Transicion> transDestino = transiciones.get(destino);
+		ArrayList<Transicion> transOrigen = transiciones.get(origen.Id);
+		ArrayList<Transicion> transDestino = transiciones.get(destino.Id);
 		
 		
 		for(Transicion t : transOrigen){
@@ -273,7 +273,7 @@ public class Grafo {
 		Nodo origen = nodos.get(idOrigen);
 		Nodo destino = nodos.get(idDestino);
 		
-		ArrayList<Transicion> transicionesDeOrigen = transiciones.get(origen);
+		ArrayList<Transicion> transicionesDeOrigen = transiciones.get(origen.Id);
 		
 		for(int i = 0; i < transicionesDeOrigen.size(); i++){
 			Transicion t = transicionesDeOrigen.get(i);
@@ -284,7 +284,7 @@ public class Grafo {
 			}
 		}
 		
-		ArrayList<Transicion> transicionesDeDestino = transiciones.get(destino);
+		ArrayList<Transicion> transicionesDeDestino = transiciones.get(destino.Id);
 		
 		for(int i = 0; i < transicionesDeDestino.size(); i++){
 			Transicion t = transicionesDeDestino.get(i);
@@ -737,14 +737,14 @@ public class Grafo {
 		//Genera transiciones entre nodos
 		Transicion t = new Transicion(origen,destino,10); 
 		ArrayList<Transicion> salientes;
-		if (!transiciones.containsKey(origen)) {
+		if (!transiciones.containsKey(origen.Id)) {
 			 salientes = new ArrayList<Transicion>();
 			 salientes.add(t);
-			 transiciones.put(origen, salientes);
+			 transiciones.put(origen.Id, salientes);
 			 
 		 }
 		else {
-			salientes = transiciones.get(origen);
+			salientes = transiciones.get(origen.Id);
 			salientes.add(t);
 		}
 	}
@@ -831,7 +831,7 @@ public class Grafo {
 	}
 
 	public Transicion getTransicion(Nodo origen, String direccion) {
-		ArrayList<Transicion> _transiciones = transiciones.get(origen);
+		ArrayList<Transicion> _transiciones = transiciones.get(origen.Id);
 			for(Transicion t : _transiciones){
 				if(Grafo.getDireccion(origen, t.destino) == direccion)
 					return t;
@@ -842,13 +842,26 @@ public class Grafo {
 
 
 	//Actualiza la data recibida desde la percepcion
-	//Los unicos datos que pueden cambiar es si el niño esta o no realmente en esa posicion
 	public void update(Transicion nuevaTransicion) {
 		if(nuevaTransicion != null){
 			Nodo nuevoNodo = nuevaTransicion.destino;
 			
+			//Actualiza si el niño esta o no en el nodo destino
 			Nodo nodoActual = nodos.get(nuevoNodo.Id);
 			nodoActual.hayNinio = nuevoNodo.hayNinio; 
+			
+			
+			//Actualiza costo de la transicion (terreno)
+			Nodo origen = nuevaTransicion.origen;
+			ArrayList<Transicion> transicionesDeOrigen = transiciones.get(origen.Id);
+			
+			
+			for(Transicion t : transicionesDeOrigen){
+				if(t.destino.Id == nuevoNodo.Id)
+					t.costo = nuevaTransicion.costo;
+			}
+			
+			
 		}
 	}
 	
