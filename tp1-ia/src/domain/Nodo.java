@@ -26,6 +26,6 @@ public class Nodo {
 	@Override
 	public String toString(){
 		
-		return "Nodo: " + Id + " X: " + Integer.toString(posX) + " Y: " + Integer.toString(posY) + "\n";
+		return "Nodo: " + Id + " X: " + "\n";
 	}
 }

@@ -31,9 +31,11 @@ public class EstadoCasa extends EnvironmentState {
      */
     @Override
     public void initState() {
+    	System.out.println("Inicializando estado casa");
+    	System.out.println("Creando terrenos");
     	grafo.crearTerrenos();
         
-    	this.setPosicionNinio(grafo.nodos.get("F9"));//innecesaria 
+    	this.setPosicionNinio(grafo.nodos.get("F9"));//innecesaria  
         grafo.nodos.get("F9").hayNinio = true; //posicion actual del niño 
         this.setPosicionSmartToy(grafo.nodos.get("F7"));
     	
@@ -47,7 +49,13 @@ public class EstadoCasa extends EnvironmentState {
      */
     @Override
     public String toString() {
-        String str = "";
+        String str = "Estado CASA: \n";
+        
+        str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
+        str += "Pos SmartToy: " + this.getPosicionSmartToy().toString() + "\n";
+        
+        
+        
 
         //TODO: Complete Method
 

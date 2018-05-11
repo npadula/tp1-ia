@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Grafo {
@@ -14,8 +15,11 @@ public class Grafo {
 		nodos = new HashMap<String,Nodo>();
 		transiciones = new HashMap<String,ArrayList<Transicion>>();
 		
+		//System.out.println("Creando nodos");
 		crearNodos();
+		//System.out.println("Creando transiciones");
 		crearTransiciones();
+		//System.out.println("Creando paredes");
 		crearParedes();
 		
 	
@@ -724,7 +728,7 @@ public class Grafo {
 				int posX = nodeSize * (col - 1);
 				int posY = nodeSize * fila;
 				
-				System.out.print(idNodo);
+
 				 nodos.put(idNodo,new Nodo(idNodo,posX,posY));
 				
 			}
@@ -865,5 +869,38 @@ public class Grafo {
 		}
 	}
 	
+	
+	
+	public Grafo clone(){
+		Grafo g = new Grafo();
+		
+		for(Nodo n : nodos.values()){
+			ArrayList<Transicion> transicionesDeN = transiciones.get(n.Id);
+			
+			for(Transicion t :  transicionesDeN){
+				Nodo nuevoOrigen = g.nodos.get(n.Id);
+				Nodo nuevoDestino = g.nodos.get(t.destino.Id);
+				
+				Transicion nuevaTrans = g.getTransicion(nuevoOrigen.Id,nuevoDestino.Id);
+				if(nuevaTrans != null)
+					nuevaTrans.costo = t.costo;
+			}
+		}
+		
+		return g;
+	  
+		
+	}
+
+
+	public Transicion getTransicion(String idOrigen, String idDestino) {
+		ArrayList<Transicion> transDeOrigen = transiciones.get(idOrigen);
+		
+		for(Transicion t : transDeOrigen){
+			if(t.destino.Id == idDestino)
+				return t;
+		}
+		return null;
+	}
 	
 }

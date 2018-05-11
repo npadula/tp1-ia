@@ -13,6 +13,8 @@ public class Transicion {
 		this.costo = costo;
 	}
 	
+	
+
 	public Transicion(){
 		
 	}

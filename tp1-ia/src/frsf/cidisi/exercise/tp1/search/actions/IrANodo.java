@@ -26,6 +26,7 @@ public class IrANodo extends SearchAction {
 
 	@Override
     public SearchBasedAgentState execute(SearchBasedAgentState s) {
+		System.out.println("Execute pensar");
         EstadoSmartToy agState = (EstadoSmartToy) s;
         
         // TODO: Use this conditions
@@ -39,6 +40,7 @@ public class IrANodo extends SearchAction {
        for(Transicion t : caminosPosibles){
     	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){
     		   agState.nodoActual = t.destino;
+    		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
     		   return agState;
     	   }
        }
@@ -51,22 +53,26 @@ public class IrANodo extends SearchAction {
      */
     @Override
     public EnvironmentState execute(AgentState ast, EnvironmentState est) {
+    	System.out.println("Execute actuar");
         EstadoCasa environmentState = (EstadoCasa) est;
         EstadoSmartToy agState = ((EstadoSmartToy) ast);
-
-        // TODO: Use this conditions
-        // PreConditions: null
-        // PostConditions: null
         
-        if (true) {
-            // Update the real world
-            
-            // Update the agent state
-            
-            return environmentState;
+        
+        Nodo nodoActual = agState.nodoActual;
+        ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual.Id);
+        
+        for(Transicion t : caminosPosibles){
+     	   if(Grafo.getDireccion(nodoActual,t.destino) == direccion){
+     		   agState.nodoActual = t.destino;
+     		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
+     		  environmentState.setPosicionSmartToy(t.destino);
+     		 return environmentState;
+     	   }
         }
-
-        return null;
+        
+        
+         
+         return null;
     }
 
     /**
@@ -83,6 +89,6 @@ public class IrANodo extends SearchAction {
      */
     @Override
     public String toString() {
-        return "IrANodo";
+        return "IrANodo" + direccion + "\n";
     }
 }

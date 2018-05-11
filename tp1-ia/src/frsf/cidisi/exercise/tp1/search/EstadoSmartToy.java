@@ -23,6 +23,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 	//private Other ListaVisitados;
 
     public EstadoSmartToy() {
+    	System.out.println("Constructor Estado Agente");
     grafo = new Grafo();
     listaObstaculos = new ArrayList<Nodo>();
     posicionAproximadaNinio = new Nodo();
@@ -40,6 +41,8 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         */
         this.initState();
     }
+    
+     
 
     /**
      * This method clones the state of the agent. It's used in the search
@@ -50,7 +53,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         
 		EstadoSmartToy nuevoEstado = new EstadoSmartToy(); // 
 		nuevoEstado.nodoActual = nodoActual; 
-		nuevoEstado.grafo = grafo;
+		nuevoEstado.grafo = grafo.clone();
 		nuevoEstado.listaObstaculos = listaObstaculos;
 		nuevoEstado.posicionAproximadaNinio = posicionAproximadaNinio;
 		nuevoEstado.posicionNinio = posicionNinio;
@@ -99,11 +102,13 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public String toString() {
-        String str = "";
-
-        //TODO: Complete Method
-
+        String str = "Estado AGENTE: \n";
+        
+        //str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
+        str += "Pos SmartToy: " + this.nodoActual.toString() + "\n";
+        
         return str;
+        
     }
 
     /**
@@ -122,7 +127,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     	        Map.Entry pair = (Map.Entry)it.next();
     	        if((Nodo)pair.getValue() == grafo.nodos.get(pair.getKey()))
     	        	mismoMundo = false;
-    	        System.out.println(pair.getKey() + " = " + pair.getValue());
+    	        //System.out.println(pair.getKey() + " = " + pair.getValue());
     	        it.remove(); // avoids a ConcurrentModificationException
     	    }
     	  
