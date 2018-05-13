@@ -22,7 +22,7 @@ public class Nodo {
 		this.hayNinio = false;
 	}
 	
-	
+	@Override
 	public Nodo clone(){
 		Nodo nuevo = new Nodo();
 		
@@ -33,7 +33,7 @@ public class Nodo {
 		nuevo.posY = this.posY;
 		nuevo.habitacion = this.habitacion;
 		nuevo.tipoPiso = this.tipoPiso;
-		
+
 		return nuevo;
 	}
 	

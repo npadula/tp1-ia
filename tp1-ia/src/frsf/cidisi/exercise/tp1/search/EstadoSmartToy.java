@@ -13,21 +13,20 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
  * Represent the internal state of the Agent.
  */
 public class EstadoSmartToy extends SearchBasedAgentState {
-	
+	public ArrayList<String> visitados;
     public Grafo grafo;
     private ArrayList<Nodo> listaObstaculos;
     private Nodo posicionNinio;
     private Nodo posicionAproximadaNinio;
     public Nodo nodoActual;
-    public ArrayList<String> visitados;
-    boolean aproxVisitado = false;
+    public boolean aproxVisitado = false;
 	//private Other listaSeniales;
 	//private Other ListaVisitados;
 
     public EstadoSmartToy() {
     	//System.out.println("Constructor Estado Agente");
-    grafo= new Grafo(27,33);
-    	//grafo = new Grafo3PorTres();
+    grafo= new Grafo(3,3);
+    visitados = new ArrayList<String>();
     listaObstaculos = new ArrayList<Nodo>();
     posicionAproximadaNinio = new Nodo();
     posicionNinio= new Nodo();
@@ -59,11 +58,13 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 		EstadoSmartToy nuevoEstado = new EstadoSmartToy(); // 
 		nuevoEstado.grafo = grafo.clone();
 		nuevoEstado.nodoActual = nuevoEstado.grafo.nodos.get(nodoActual.Id); 
-		nuevoEstado.posicionAproximadaNinio = posicionAproximadaNinio;
-		nuevoEstado.posicionNinio = posicionNinio;
-		
+		//nuevoEstado.posicionAproximadaNinio = posicionAproximadaNinio;
+		nuevoEstado.posicionNinio = nuevoEstado.grafo.nodos.get(posicionNinio.Id);
+		nuevoEstado.aproxVisitado = aproxVisitado;
 		nuevoEstado.listaObstaculos = listaObstaculos;
-		
+		for(String idNodo : visitados){
+			nuevoEstado.visitados.add(idNodo);
+		}
 		
 		
 		
@@ -77,8 +78,9 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     @Override
     public void updateState(Perception p) {
         SmartToyPerception perception = (SmartToyPerception) p;
-        System.out.print(perception.toString());
+        
 
+        
         //Actualiza la informacion sobre si hay niño o no en los nodos cercanos
         grafo.update(perception.tAbajo);
         grafo.update(perception.tArriba);
@@ -86,31 +88,31 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         grafo.update(perception.tDerecha);
         
         if(perception.tAbajo != null){
-        	if(perception.tAbajo.destino.Id.equals(posicionNinio))
-        		aproxVisitado = true;
+        	//if(perception.tAbajo.destino.Id.equals(posicionNinio))
+        		//aproxVisitado = true;
         	if(perception.tAbajo.destino.hayNinio)
         		posicionNinio = perception.tAbajo.destino;
         }
         if(perception.tArriba != null ){
-        	if(perception.tArriba.destino.equals(posicionNinio))
-        		aproxVisitado = true;
+        //	if(perception.tArriba.destino.equals(posicionNinio))
+        	//	aproxVisitado = true;
         	if(perception.tArriba.destino.hayNinio)
         		posicionNinio = perception.tArriba.destino;
         	}
         if(perception.tIzquierda != null){
-        	if(perception.tIzquierda.destino.equals(posicionNinio))
-        		aproxVisitado = true;
+        	//if(perception.tIzquierda.destino.equals(posicionNinio))
+        		//aproxVisitado = true;
         	if(perception.tIzquierda.destino.hayNinio)
         		posicionNinio = perception.tIzquierda.destino;
         	}
         if(perception.tDerecha != null){
-        	if(perception.tDerecha.destino.equals(posicionNinio))
-        		aproxVisitado = true;
+        	//if(perception.tDerecha.destino.equals(posicionNinio))
+        		//aproxVisitado = true;
         	
         	if(perception.tDerecha.destino.hayNinio)
         		posicionNinio = perception.tDerecha.destino;
         	}
-        
+        System.out.print(perception.toString());
         //graficarEstadoSmartToy();
     }
 
@@ -121,9 +123,10 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public void initState() {
     	//inicializar lo que conoce el agento al inicio 
     	//listaObstaculos.add(new Nodo("A22")); 
-    	posicionNinio = new Nodo("A3",0,0);
+    	posicionNinio = new Nodo("C1",0,0);
+    	nodoActual =  grafo.nodos.get("C3");
+    	visitados.add(nodoActual.Id);
     	
-    	nodoActual =  grafo.nodos.get("C8");
     }
 
     /**
@@ -131,10 +134,16 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public String toString() {
-        String str = "Estado AGENTE: \n";
         
+        String str = "";
         //str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
         str += "Pos SmartToy: " + this.nodoActual.toString() + "\n";
+        str += "Visitados: ";
+        
+        for(String v : visitados){
+        	str+= v + ", ";
+        }
+        str += "\n";
         
         return str;
         
@@ -159,10 +168,36 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     	        //System.out.println(pair.getKey() + " = " + pair.getValue());
     	        it.remove(); // avoids a ConcurrentModificationException
     	    }
+    	    
+    	    boolean mismosVisitados = this.visitadosIguales(estadoComparado.visitados);
     	  
-    	 return mismaPosicion && mismoMundo;
+    	 return mismaPosicion && mismoMundo && mismosVisitados && (aproxVisitado == estadoComparado.aproxVisitado);
     }
 
+    public boolean fueVisitado(String idNodo){
+    	return visitados.contains(idNodo);
+    }
+    
+    public boolean todosVisitados(){
+    	boolean result = true;
+    	for(String idNodo : grafo.nodos.keySet()){
+    		if(!visitados.contains(idNodo))
+    			result = false;
+    	}
+    	
+    	return result;
+    }
+    
+    private boolean visitadosIguales(ArrayList<String> visitados2){
+    	boolean result = true;
+
+    	for(String v : visitados){
+    		if(!visitados2.contains(v))
+    			result = false;
+    	}
+    	
+    	return result;
+    }
     //TODO: Complete this section with agent-specific methods
     // The following methods are agent-specific:
    	
