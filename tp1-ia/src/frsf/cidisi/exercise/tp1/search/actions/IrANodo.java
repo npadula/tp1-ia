@@ -40,6 +40,9 @@ public class IrANodo extends SearchAction {
        for(Transicion t : caminosPosibles){
     	   if(Grafo.getDireccion(nodoActual,t.destino).equals(direccion)){
     		   agState.nodoActual = t.destino;
+    		   agState.visitados.add(t.destino.Id);
+    		   if(t.destino.Id.equals(agState.getPosicionNinio().Id))
+    			   agState.aproxVisitado = true;
     		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
     		   //agState.grafo.graficarGrafo(t.destino.Id);
     		   //System.out.println(agState.nodoActual.Id.equals(t.destino.Id)); 
@@ -68,6 +71,9 @@ public class IrANodo extends SearchAction {
         for(Transicion t : caminosPosibles){
      	   if(Grafo.getDireccion(nodoActual,t.destino).equals(direccion)){
      		   agState.nodoActual = t.destino;
+     		   agState.visitados.add(t.destino.Id);
+    		   if(t.destino.Id.equals(agState.getPosicionNinio().Id))
+    			   agState.aproxVisitado = true;
      		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
      		  environmentState.setPosicionSmartToy(t.destino);
      		 environmentState.actualizarPosiSmartToy(t.destino);

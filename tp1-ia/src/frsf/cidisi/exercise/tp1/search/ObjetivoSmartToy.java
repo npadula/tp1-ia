@@ -2,6 +2,7 @@
 
 package frsf.cidisi.exercise.tp1.search;
 
+import domain.Nodo;
 import frsf.cidisi.faia.agent.search.GoalTest;
 import frsf.cidisi.faia.state.AgentState;
 
@@ -14,20 +15,35 @@ public class ObjetivoSmartToy extends GoalTest {
     	boolean ninioAbajo = false;
     	boolean ninioIzquierda = false;
     	boolean ninioDerecha  = false;
+    	boolean visitadoIzq = true;
+    	boolean visitadoDer = true;
+    	boolean visitadoAbajo = true;
+    	boolean visitadoArriba = true;
     	
     	
     	
     	
-    	// TODO: Complete Method
-    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "arriba") != null)
-    		ninioArriba = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "arriba").destino.hayNinio;
+    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "arriba") != null){
+    		Nodo arriba = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "arriba").destino;
+    		ninioArriba = arriba.hayNinio;
+    		visitadoArriba = estadoSmartToy.fueVisitado(arriba.Id);
+    	}
     	
-    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "abajo") != null)
-    		ninioAbajo = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "abajo").destino.hayNinio;
-    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "izquierda") != null)
-    		ninioIzquierda = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "izquierda").destino.hayNinio;
-    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "derecha") != null)
-    		ninioDerecha = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "derecha").destino.hayNinio;
+    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "abajo") != null){
+    		Nodo abajo = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "abajo").destino;
+    		ninioAbajo = abajo.hayNinio;
+    		visitadoArriba = estadoSmartToy.fueVisitado(abajo.Id);
+    		}
+    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "izquierda") != null){
+    		Nodo izquierda = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "izquierda").destino;
+    		ninioIzquierda = izquierda.hayNinio;
+    		visitadoArriba = estadoSmartToy.fueVisitado(izquierda.Id);
+    		}
+    	if(estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "derecha") != null){
+    		Nodo derecha = estadoSmartToy.grafo.getTransicion(estadoSmartToy.nodoActual, "derecha").destino;
+    		ninioDerecha = derecha.hayNinio;
+    		visitadoArriba = estadoSmartToy.fueVisitado(derecha.Id);
+    		}
     	
     	boolean hayNinioCerca = (ninioArriba || ninioAbajo || ninioIzquierda || ninioDerecha); // si el ninio esta en el campo de vision (adyacentes) 
         //opcion 2 
@@ -50,6 +66,8 @@ public class ObjetivoSmartToy extends GoalTest {
     		return true;
     	//Si ya visito el nodo aprox y el niño esta cerca 
     	else if(estadoSmartToy.aproxVisitado && hayNinioCerca)
+    		return true;
+    	else if(estadoSmartToy.todosVisitados())
     		return true;
     	else //Caso contrario, falla
     		return false;
