@@ -9,13 +9,15 @@ package Interfaces;
 	 *
 	 */
 	public class PanelFondo extends javax.swing.JPanel {
-		public PanelFondo(){
+		String url;
+		public PanelFondo(String newUrl){
 				this.setSize(25,25);
+				this.url = newUrl;
 		}
 		@Override
 		public void paintComponent (Graphics g){
 			Dimension tamanio = getSize();
-			ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/imagenes/autito.png"));
+			ImageIcon imagenFondo = new ImageIcon(getClass().getResource(url));
 			g.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);
 			setOpaque(false);
 			super.paintComponent(g);

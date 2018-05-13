@@ -44,6 +44,7 @@ public class IrANodo extends SearchAction {
     		   //agState.grafo.graficarGrafo(t.destino.Id);
     		   //System.out.println(agState.nodoActual.Id.equals(t.destino.Id)); 
     		   //agState.graficarEstadoSmartToy();
+    		   
     		   return agState;
     	   }
        }
@@ -69,7 +70,8 @@ public class IrANodo extends SearchAction {
      		   agState.nodoActual = t.destino;
      		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
      		  environmentState.setPosicionSmartToy(t.destino);
-     		 return environmentState;
+     		 environmentState.actualizarPosiSmartToy(t.destino);
+     		  return environmentState;
      	   }
         }
         

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
+import Interfaces.Principal;
+
 import domain.Grafo;
 import domain.Nodo;
 import frsf.cidisi.faia.agent.Perception;
@@ -21,6 +23,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public Nodo nodoActual;
     public ArrayList<String> visitados;
     boolean aproxVisitado = false;
+    //Principal ventana;
 	//private Other listaSeniales;
 	//private Other ListaVisitados;
 
@@ -34,17 +37,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     visitados = new ArrayList<String>();
     
     
-    //TODO: Complete Method
-    	/*
-			// ListaNodos = initData0;
-			// ListaArcos = initData1;
-			// ListaObstaculos = initData2;
-			// ListaVisitados = initData3;
-			// PosicionNinio = initData4;
-			// ListaSeniales = initData5;
-			// NodoActual = initData6;
-        */
-        this.initState();
+    this.initState();
     }
     
      
@@ -121,9 +114,9 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public void initState() {
     	//inicializar lo que conoce el agento al inicio 
     	//listaObstaculos.add(new Nodo("A22")); 
-    	posicionNinio = new Nodo("A3",0,0);
-    	
-    	nodoActual =  grafo.nodos.get("C8");
+    	posicionNinio = new Nodo("H5",0,0);
+    	nodoActual =  grafo.nodos.get("G5");
+    	//ventana = new Principal(nodoActual);
     }
 
     /**
@@ -232,5 +225,17 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 		}
 		System.out.println(str);
     }
+
+
+
+	public void actualizarPosiSmartToy(Nodo destino) {
+		{
+			
+			//ventana.actualizarPosicionAuto(destino);
+		}
+		
+		// TODO Auto-generated method stub
+		
+	}
 }
 

@@ -2,6 +2,8 @@ package frsf.cidisi.exercise.tp1.search;
 
 import java.util.ArrayList;
 
+import Interfaces.Principal;
+
 import domain.Grafo;
 import domain.Nodo;
 import domain.Transicion;
@@ -15,6 +17,7 @@ public class EstadoCasa extends EnvironmentState {
 	private Nodo posicionNinio;//posicion actual del niño lo va a saber cuando este en un nodo adya
 	private Nodo posicionAproximada;//posicion de la puerta 
     private ArrayList<Nodo> ListaObstaculos;
+    public Principal ventana;
     //private Other ListaSeniales;
     private Nodo PosicionSmartToy;
 	
@@ -36,12 +39,12 @@ public class EstadoCasa extends EnvironmentState {
     	System.out.println("Creando terrenos");
     	//grafo.crearTerrenos();
         
-    	this.setPosicionNinio(grafo.nodos.get("B2"));//innecesaria  
+    	this.setPosicionNinio(grafo.nodos.get("H5"));//innecesaria  
         grafo.nodos.get("B2").hayNinio = true; //posicion actual del niño 
-        this.setPosicionSmartToy(grafo.nodos.get("C8"));
+        this.setPosicionSmartToy(grafo.nodos.get("G5"));
     	
         graficarEstadoCasa();
- 	 
+        ventana = new Principal(PosicionSmartToy, posicionNinio );
     }
 
     /**
@@ -130,6 +133,10 @@ public class EstadoCasa extends EnvironmentState {
 			str+= "\n"; 
 		}
 		System.out.println(str);
+	}
+	
+	public void actualizarPosiSmartToy(Nodo n){
+		ventana.actualizarPosicionAuto(n);
 	}
 
 }
