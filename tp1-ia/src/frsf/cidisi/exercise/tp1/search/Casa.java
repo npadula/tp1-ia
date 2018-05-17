@@ -1,5 +1,6 @@
 package frsf.cidisi.exercise.tp1.search;
 
+import domain.Nodo;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.environment.Environment;
@@ -24,27 +25,49 @@ public class Casa extends Environment {
     @Override
     public  SmartToyPerception getPercept() {
         // Create a new perception to return
-         SmartToyPerception perception = new SmartToyPerception();
+         SmartToyPerception p = new SmartToyPerception();
 		
-         EstadoCasa envState = this.getEnvironmentState();
+         EstadoCasa estadoCasa = getEnvironmentState();
          
-         perception.posicionAproximadaNinio = envState.getPosicionAproximada();// no se si es necesario porque no cambia 
-         perception.tDerecha = envState.getTransicion(envState.getPosicionSmartToy(),"derecha");
-         perception.tIzquierda = envState.getTransicion(envState.getPosicionSmartToy(),"izquierda");
-         perception.tAbajo = envState.getTransicion(envState.getPosicionSmartToy(),"abajo");
-         perception.tArriba = envState.getTransicion(envState.getPosicionSmartToy(),"arriba");
+         Nodo nodoActual = estadoCasa.getPosicionSmartToy();
+         p.posicionAproximadaNinio = estadoCasa.getPosicionNinio();
+         
+         Nodo arriba = estadoCasa.getNodo(nodoActual, "arriba");
+         if(arriba != null)
+         	p.terrenoArriba = arriba.costo > 10 ? "LENTO" : "RAPIDO";
+         else
+         	p.hayArriba = false;
+         	
+         
+         Nodo abajo = estadoCasa.getNodo(nodoActual, "abajo");
+         if(abajo != null)
+         	p.terrenoAbajo = abajo.costo > 10 ? "LENTO" : "RAPIDO";
+         else
+            	p.hayAbajo = false;
+
+         Nodo derecha = estadoCasa.getNodo(nodoActual, "derecha");
+         if(derecha != null)
+         	p.terrenoDer = derecha.costo > 10 ? "LENTO" : "RAPIDO";
+     	else
+     		p.hayDerecha = false;
+         
+         Nodo izq = estadoCasa.getNodo(nodoActual, "izquierda");
+         if(izq != null)
+         	p.terrenoIzq = izq.costo > 10 ? "LENTO" : "RAPIDO";
+     	else
+     		p.hayIzquierda = false;
          
          
-         
-	    // envState.getPosicionNinio()
-        // .getListaObstaculos()
-        // .getPosicionSmartToy()
+         p.ninioCerca = (
+        		 (izq != null && izq.hayNinio)
+        		 || (derecha != null && derecha.hayNinio) 
+        		 || (arriba != null && arriba.hayNinio)
+        		 || (abajo != null && abajo.hayNinio) 
+        		 || nodoActual.hayNinio
+        		 );
       
          
-		//TODO : Set the perceptions sensors
-        
-        // Return the perception
-        return perception;
+		return p;
     }
 
     

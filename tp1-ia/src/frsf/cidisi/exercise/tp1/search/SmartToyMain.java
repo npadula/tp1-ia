@@ -6,7 +6,8 @@ import frsf.cidisi.faia.simulator.SearchBasedAgentSimulator;
 public class SmartToyMain {
 
     public static void main(String[] args) throws PrologConnectorException {
-        SmartToy agent = new SmartToy();
+        
+    	SmartToy agent = new SmartToy();
 
         Casa environment = new Casa();
 

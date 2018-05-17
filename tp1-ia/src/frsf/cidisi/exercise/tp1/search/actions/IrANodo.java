@@ -18,6 +18,7 @@ public class IrANodo extends SearchAction {
      * It does not updates the real world state.
      */
     private String direccion;
+    
 
 	public IrANodo(String dir){
 		direccion = dir;
@@ -28,28 +29,25 @@ public class IrANodo extends SearchAction {
     public SearchBasedAgentState execute(SearchBasedAgentState s) {
 		//System.out.println("Execute pensar");
         EstadoSmartToy agState = (EstadoSmartToy) s;
-        // METODO QUE PIENSA 
-        // TODO: Use this conditions
-        // PreConditions: null
-        // PostConditions: null
+
         
         
        Nodo nodoActual = agState.nodoActual;
-       ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual.Id);
+     
        
-       for(Transicion t : caminosPosibles){
-    	   if(Grafo.getDireccion(nodoActual,t.destino).equals(direccion)){
-    		   agState.nodoActual = t.destino;
-    		   agState.visitados.add(t.destino.Id);
-    		   if(t.destino.Id.equals(agState.getPosicionNinio().Id))
-    			   agState.aproxVisitado = true;
-    		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
-    		   //agState.grafo.graficarGrafo(t.destino.Id);
-    		   //System.out.println(agState.nodoActual.Id.equals(t.destino.Id)); 
-    		   //agState.graficarEstadoSmartToy();
-    		   return agState;
-    	   }
+       
+       Nodo proxNodo = agState.grafo.getNodo(nodoActual, direccion);
+       
+       if(proxNodo != null && !agState.fueVisitado(proxNodo.Id)){
+       	agState.nodoActual = proxNodo;
+       	//agState.visitados.add(proxNodo.Id);
+       	
+    	if(proxNodo.Id.equals(agState.getPosicionNinio().Id))
+    		agState.aproxVisitado = true;
+       	
+       	return agState;
        }
+
         
         return null;
     }
@@ -59,28 +57,29 @@ public class IrANodo extends SearchAction {
      */
     @Override
     public EnvironmentState execute(AgentState ast, EnvironmentState est) {
-    	System.out.println("Execute actuar" + direccion);
+    	System.out.println("Execute actuar " + direccion);
         EstadoCasa environmentState = (EstadoCasa) est;
         EstadoSmartToy agState = ((EstadoSmartToy) ast);
         
         
         Nodo nodoActual = agState.nodoActual;
-        ArrayList<Transicion> caminosPosibles = agState.grafo.transiciones.get(nodoActual.Id);
+       
         
-        for(Transicion t : caminosPosibles){
-     	   if(Grafo.getDireccion(nodoActual,t.destino).equals(direccion)){
-     		   agState.nodoActual = t.destino;
-     		   agState.visitados.add(t.destino.Id);
-    		   if(t.destino.Id.equals(agState.getPosicionNinio().Id))
-    			   agState.aproxVisitado = true;
-     		   System.out.println("IrAnodo - " + direccion + " - DESDE: " + t.origen + "HACIA: " + t.destino);
-     		  environmentState.setPosicionSmartToy(t.destino);
-     		 return environmentState;
-     	   }
+        Nodo proxNodo = agState.grafo.getNodo(nodoActual, direccion);
+        
+        if(proxNodo != null && !agState.fueVisitado(proxNodo.Id)){
+        	agState.nodoActual = proxNodo;
+        	agState.visitados.add(proxNodo.Id);
+        	
+        	if(proxNodo.Id.equals(agState.getPosicionNinio().Id))
+        		agState.aproxVisitado = true;
+        	
+        	environmentState.setPosicionSmartToy(proxNodo);
+        	
+        	return environmentState;
         }
+
         
-        
-         
          return null;
     }
 

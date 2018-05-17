@@ -1,6 +1,10 @@
-package frsf.cidisi.exercise.tp1.search;
+package frsf.cidisi.exercise.tp1.search; 
 
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+import Interfaces.Principal;
 
 import domain.Grafo;
 import domain.Nodo;
@@ -12,16 +16,17 @@ import frsf.cidisi.faia.state.EnvironmentState;
  */
 public class EstadoCasa extends EnvironmentState {
 	private Grafo grafo;
-	private Nodo posicionNinio;//posicion actual del niño lo va a saber cuando este en un nodo adya
-	private Nodo posicionAproximada;//posicion de la puerta 
+	private Nodo posicionNinio;//posicion aproximada del ninio 
+	public String posicionRealNinio;
     private ArrayList<Nodo> ListaObstaculos;
     //private Other ListaSeniales;
     private Nodo PosicionSmartToy;
+    Principal ventana;
 	
     public EstadoCasa() {
-        grafo= new Grafo(3,3);
-    	//grafo = new Grafo3PorTres();
+        grafo= new Grafo(10,10);
         ListaObstaculos = new ArrayList<Nodo>();//Llenar 
+
         //ListaSeniales
         
         this.initState();
@@ -32,16 +37,16 @@ public class EstadoCasa extends EnvironmentState {
      */
     @Override
     public void initState() {
-    	System.out.println("Inicializando estado casa");
-    	System.out.println("Creando terrenos");
-    	//grafo.crearTerrenos();
+    	String posAgente = "D7";
+    	String posNinioAprox = "A2";
+    	String posNinioReal = "F7";
         
-    	this.setPosicionNinio(grafo.nodos.get("A1")); 
-        grafo.nodos.get("A1").hayNinio = true; //posicion actual del niño 
-        this.setPosicionSmartToy(grafo.nodos.get("C3"));
-    	
-        graficarEstadoCasa();
- 	 
+    	this.posicionRealNinio = posNinioReal;
+        grafo.nodos.get(posNinioReal).hayNinio = true; //posicion REAL del niño 
+        this.setPosicionSmartToy(grafo.nodos.get(posAgente));
+    	this.setPosicionNinio(grafo.nodos.get(posNinioAprox));
+        ventana = new Principal(PosicionSmartToy,grafo.nodos.get(posAgente));
+        
     }
 
     /**
@@ -51,12 +56,9 @@ public class EstadoCasa extends EnvironmentState {
     public String toString() {
         String str = "Estado CASA: \n";
         
-        str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
+        str += "Posicion REAL Ninio: " + this.posicionRealNinio + "\n";
         str += "Pos SmartToy: " + this.getPosicionSmartToy().toString() + "\n";
         
-        
-        
-
         //TODO: Complete Method
 
         return str;
@@ -78,12 +80,7 @@ public class EstadoCasa extends EnvironmentState {
         ListaObstaculos = arg;
      }
      
-     public Nodo getPosicionAproximada(){
-    	 return posicionAproximada;
-     }
-     public void setPosicionAproximada(Nodo arg){
-    	 posicionAproximada = arg;
-     }
+ 
      
      
      /*public Other getListaSeniales(){
@@ -100,16 +97,20 @@ public class EstadoCasa extends EnvironmentState {
         PosicionSmartToy = arg;
      }
      
+     public Grafo getGrafo(){
+    	 return this.grafo;
+     }
+     
      public void addObstaculo(Nodo n){
     	 this.ListaObstaculos.add(n);
      }
 
-	public Transicion getTransicion(Nodo origen, String direccion) {
-		return grafo.getTransicion(origen,direccion);
+	public Nodo getNodo(Nodo origen, String direccion) {
+		return grafo.getNodo(origen,direccion);
 	}
 	
 	public void graficarEstadoCasa(){
-		String str="ESTADO CASA : \n";
+		String str="";
 		int colSize = grafo.colSize;
 		int rowSize = grafo.rowSize;
 		
@@ -119,12 +120,16 @@ public class EstadoCasa extends EnvironmentState {
 			for(int fila = 1; fila<= rowSize; fila++){
 				String idNodo = letra + Integer.toString(fila);
 				Nodo aux = this.grafo.nodos.get(idNodo);
-				if(idNodo.equals(this.PosicionSmartToy.Id))
+				if(idNodo.equals(this.PosicionSmartToy.Id)){
 					str+= idNodo + ":" + 1;
-				else if(aux.hayNinio == true)
+				}	
+				else if(aux.hayNinio == true){
 					str+= idNodo + ":" + 2;
-				else
+				}
+				else {
 					str+= idNodo + ":" + 0;
+				}
+					
 				str+= " | ";
 			}
 			str+= "\n"; 
@@ -132,5 +137,11 @@ public class EstadoCasa extends EnvironmentState {
 		System.out.println(str);
 	}
 
+	public void modificarPosicionSmartToy(Nodo destino) {
+		ventana.actualizarPosicionAuto(destino);
+		
+	}
+
+	
 }
 
