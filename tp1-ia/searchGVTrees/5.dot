@@ -1,11 +1,11 @@
 digraph g {
 node [shape = Mrecord];
 nodo0[label="{EO: 0|cost: 0.0|A: null}"]
-nodo1[label="{EO: 1|cost: 1.0|A: IrANodoarriba
+nodo1[label="{EO: 1|cost: 10.0|A: IrANodoarriba
 }"]
 
 nodo0 -> nodo1;
-nodo2[label="{EO: 2|cost: 1.0|A: IrANododerecha
+nodo2[label="{EO: 2|cost: 10.0|A: IrANododerecha
 }"]
 
 nodo0 -> nodo2;

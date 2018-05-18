@@ -17,7 +17,7 @@ public class IrANodo extends SearchAction {
      * This method updates a tree node state when the search process is running.
      * It does not updates the real world state.
      */
-    private String direccion;
+    public String direccion;
     
 
 	public IrANodo(String dir){

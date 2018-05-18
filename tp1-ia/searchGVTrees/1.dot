@@ -1,156 +1,156 @@
 digraph g {
 node [shape = Mrecord];
 nodo0[label="{EO: 0|cost: 0.0|A: null}"]
-nodo1[label="{EO: 1|cost: 1.0|A: IrANodoabajo
+nodo1[label="{EO: 1|cost: 10.0|A: IrANodoabajo
 }"]
-nodo4[label="{EO: 4|cost: 2.0|A: IrANodoabajo
+nodo4[label="{EO: 4|cost: 20.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nE8
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo11[label="{EO: 11|cost: 3.0|A: IrANodoabajo
+nodo11[label="{EO: 11|cost: 30.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nE9
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo32[label="{EO: 32|cost: 4.0|A: IrANodoizquierda
+nodo32[label="{EO: 32|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nE10
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo86[label="{EO: 86|cost: 5.0|A: IrANodoizquierda
+nodo86[label="{EO: 86|cost: 50.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nD10
 
 Visitados:\n
 D7\nD7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo32 -> nodo86;
-nodo87[label="{EO: 87|cost: 5.0|A: IrANodoarriba
+nodo87[label="{EO: 87|cost: 50.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nD10
 
 Visitados:\n
 D7\nD7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo32 -> nodo87;
 
 nodo11 -> nodo32;
-nodo33[label="{EO: 33|cost: 4.0|A: IrANododerecha
+nodo33[label="{EO: 33|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nE10
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo11 -> nodo33;
 
 nodo4 -> nodo11;
-nodo12[label="{EO: 12|cost: 3.0|A: IrANodoizquierda
+nodo12[label="{EO: 12|cost: 30.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nE9
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo34[label="{EO: 34|cost: 4.0|A: IrANodoabajo
+nodo34[label="{EO: 34|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nD9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo12 -> nodo34;
-nodo35[label="{EO: 35|cost: 4.0|A: IrANodoizquierda
+nodo35[label="{EO: 35|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nD9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo12 -> nodo35;
 
 nodo4 -> nodo12;
-nodo13[label="{EO: 13|cost: 3.0|A: IrANododerecha
+nodo13[label="{EO: 13|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nE9
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo36[label="{EO: 36|cost: 4.0|A: IrANodoabajo
+nodo36[label="{EO: 36|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo13 -> nodo36;
-nodo37[label="{EO: 37|cost: 4.0|A: IrANodoarriba
+nodo37[label="{EO: 37|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo13 -> nodo37;
-nodo38[label="{EO: 38|cost: 4.0|A: IrANododerecha
+nodo38[label="{EO: 38|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
@@ -159,142 +159,142 @@ nodo13 -> nodo38;
 nodo4 -> nodo13;
 
 nodo1 -> nodo4;
-nodo5[label="{EO: 5|cost: 2.0|A: IrANododerecha
+nodo5[label="{EO: 5|cost: 20.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nE8
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo14[label="{EO: 14|cost: 3.0|A: IrANodoabajo
+nodo14[label="{EO: 14|cost: 30.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF8
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo39[label="{EO: 39|cost: 4.0|A: IrANodoabajo
+nodo39[label="{EO: 39|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo14 -> nodo39;
-nodo40[label="{EO: 40|cost: 4.0|A: IrANodoizquierda
+nodo40[label="{EO: 40|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo14 -> nodo40;
-nodo41[label="{EO: 41|cost: 4.0|A: IrANododerecha
+nodo41[label="{EO: 41|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo14 -> nodo41;
 
 nodo5 -> nodo14;
-nodo15[label="{EO: 15|cost: 3.0|A: IrANodoarriba
+nodo15[label="{EO: 15|cost: 30.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF8
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo42[label="{EO: 42|cost: 4.0|A: IrANodoarriba
+nodo42[label="{EO: 42|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo15 -> nodo42;
-nodo43[label="{EO: 43|cost: 4.0|A: IrANododerecha
+nodo43[label="{EO: 43|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo15 -> nodo43;
 
 nodo5 -> nodo15;
-nodo16[label="{EO: 16|cost: 3.0|A: IrANododerecha
+nodo16[label="{EO: 16|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF8
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo44[label="{EO: 44|cost: 4.0|A: IrANodoabajo
+nodo44[label="{EO: 44|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo16 -> nodo44;
-nodo45[label="{EO: 45|cost: 4.0|A: IrANodoarriba
+nodo45[label="{EO: 45|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo16 -> nodo45;
-nodo46[label="{EO: 46|cost: 4.0|A: IrANododerecha
+nodo46[label="{EO: 46|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
@@ -305,144 +305,144 @@ nodo5 -> nodo16;
 nodo1 -> nodo5;
 
 nodo0 -> nodo1;
-nodo2[label="{EO: 2|cost: 1.0|A: IrANodoarriba
+nodo2[label="{EO: 2|cost: 10.0|A: IrANodoarriba
 }"]
-nodo6[label="{EO: 6|cost: 2.0|A: IrANodoarriba
+nodo6[label="{EO: 6|cost: 20.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nE6
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo17[label="{EO: 17|cost: 3.0|A: IrANodoizquierda
+nodo17[label="{EO: 17|cost: 30.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nE5
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo47[label="{EO: 47|cost: 4.0|A: IrANodoizquierda
+nodo47[label="{EO: 47|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nD5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo17 -> nodo47;
-nodo48[label="{EO: 48|cost: 4.0|A: IrANodoarriba
+nodo48[label="{EO: 48|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nD5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo17 -> nodo48;
 
 nodo6 -> nodo17;
-nodo18[label="{EO: 18|cost: 3.0|A: IrANodoarriba
+nodo18[label="{EO: 18|cost: 30.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nE5
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo49[label="{EO: 49|cost: 4.0|A: IrANodoizquierda
+nodo49[label="{EO: 49|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nE4
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo18 -> nodo49;
-nodo50[label="{EO: 50|cost: 4.0|A: IrANodoarriba
+nodo50[label="{EO: 50|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nE4
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo18 -> nodo50;
-nodo51[label="{EO: 51|cost: 4.0|A: IrANododerecha
+nodo51[label="{EO: 51|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nE4
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo18 -> nodo51;
 
 nodo6 -> nodo18;
-nodo19[label="{EO: 19|cost: 3.0|A: IrANododerecha
+nodo19[label="{EO: 19|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nE5
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo52[label="{EO: 52|cost: 4.0|A: IrANodoabajo
+nodo52[label="{EO: 52|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo19 -> nodo52;
-nodo53[label="{EO: 53|cost: 4.0|A: IrANodoarriba
+nodo53[label="{EO: 53|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo19 -> nodo53;
-nodo54[label="{EO: 54|cost: 4.0|A: IrANododerecha
+nodo54[label="{EO: 54|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
@@ -451,142 +451,142 @@ nodo19 -> nodo54;
 nodo6 -> nodo19;
 
 nodo2 -> nodo6;
-nodo7[label="{EO: 7|cost: 2.0|A: IrANododerecha
+nodo7[label="{EO: 7|cost: 20.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nE6
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo20[label="{EO: 20|cost: 3.0|A: IrANodoabajo
+nodo20[label="{EO: 20|cost: 30.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF6
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo55[label="{EO: 55|cost: 4.0|A: IrANodoabajo
+nodo55[label="{EO: 55|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo20 -> nodo55;
-nodo56[label="{EO: 56|cost: 4.0|A: IrANododerecha
+nodo56[label="{EO: 56|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo20 -> nodo56;
 
 nodo7 -> nodo20;
-nodo21[label="{EO: 21|cost: 3.0|A: IrANodoarriba
+nodo21[label="{EO: 21|cost: 30.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF6
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo57[label="{EO: 57|cost: 4.0|A: IrANodoizquierda
+nodo57[label="{EO: 57|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo21 -> nodo57;
-nodo58[label="{EO: 58|cost: 4.0|A: IrANodoarriba
+nodo58[label="{EO: 58|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo21 -> nodo58;
-nodo59[label="{EO: 59|cost: 4.0|A: IrANododerecha
+nodo59[label="{EO: 59|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo21 -> nodo59;
 
 nodo7 -> nodo21;
-nodo22[label="{EO: 22|cost: 3.0|A: IrANododerecha
+nodo22[label="{EO: 22|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF6
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo60[label="{EO: 60|cost: 4.0|A: IrANodoabajo
+nodo60[label="{EO: 60|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo22 -> nodo60;
-nodo61[label="{EO: 61|cost: 4.0|A: IrANodoarriba
+nodo61[label="{EO: 61|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo22 -> nodo61;
-nodo62[label="{EO: 62|cost: 4.0|A: IrANododerecha
+nodo62[label="{EO: 62|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
@@ -597,132 +597,132 @@ nodo7 -> nodo22;
 nodo2 -> nodo7;
 
 nodo0 -> nodo2;
-nodo3[label="{EO: 3|cost: 1.0|A: IrANododerecha
+nodo3[label="{EO: 3|cost: 10.0|A: IrANododerecha
 }"]
-nodo8[label="{EO: 8|cost: 2.0|A: IrANodoabajo
+nodo8[label="{EO: 8|cost: 20.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo23[label="{EO: 23|cost: 3.0|A: IrANodoabajo
+nodo23[label="{EO: 23|cost: 30.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF8
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo63[label="{EO: 63|cost: 4.0|A: IrANodoabajo
+nodo63[label="{EO: 63|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo23 -> nodo63;
-nodo64[label="{EO: 64|cost: 4.0|A: IrANodoizquierda
+nodo64[label="{EO: 64|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo23 -> nodo64;
-nodo65[label="{EO: 65|cost: 4.0|A: IrANododerecha
+nodo65[label="{EO: 65|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF9
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo23 -> nodo65;
 
 nodo8 -> nodo23;
-nodo24[label="{EO: 24|cost: 3.0|A: IrANodoizquierda
+nodo24[label="{EO: 24|cost: 30.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nF8
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo66[label="{EO: 66|cost: 4.0|A: IrANodoabajo
+nodo66[label="{EO: 66|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nE8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo24 -> nodo66;
 
 nodo8 -> nodo24;
-nodo25[label="{EO: 25|cost: 3.0|A: IrANododerecha
+nodo25[label="{EO: 25|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF8
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo67[label="{EO: 67|cost: 4.0|A: IrANodoabajo
+nodo67[label="{EO: 67|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo25 -> nodo67;
-nodo68[label="{EO: 68|cost: 4.0|A: IrANodoarriba
+nodo68[label="{EO: 68|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo25 -> nodo68;
-nodo69[label="{EO: 69|cost: 4.0|A: IrANododerecha
+nodo69[label="{EO: 69|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
@@ -731,130 +731,130 @@ nodo25 -> nodo69;
 nodo8 -> nodo25;
 
 nodo3 -> nodo8;
-nodo9[label="{EO: 9|cost: 2.0|A: IrANodoarriba
+nodo9[label="{EO: 9|cost: 20.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo26[label="{EO: 26|cost: 3.0|A: IrANodoizquierda
+nodo26[label="{EO: 26|cost: 30.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nF6
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo70[label="{EO: 70|cost: 4.0|A: IrANodoarriba
+nodo70[label="{EO: 70|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nE6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo26 -> nodo70;
 
 nodo9 -> nodo26;
-nodo27[label="{EO: 27|cost: 3.0|A: IrANodoarriba
+nodo27[label="{EO: 27|cost: 30.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF6
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo71[label="{EO: 71|cost: 4.0|A: IrANodoizquierda
+nodo71[label="{EO: 71|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo27 -> nodo71;
-nodo72[label="{EO: 72|cost: 4.0|A: IrANodoarriba
+nodo72[label="{EO: 72|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo27 -> nodo72;
-nodo73[label="{EO: 73|cost: 4.0|A: IrANododerecha
+nodo73[label="{EO: 73|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF5
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo27 -> nodo73;
 
 nodo9 -> nodo27;
-nodo28[label="{EO: 28|cost: 3.0|A: IrANododerecha
+nodo28[label="{EO: 28|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF6
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo74[label="{EO: 74|cost: 4.0|A: IrANodoabajo
+nodo74[label="{EO: 74|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo28 -> nodo74;
-nodo75[label="{EO: 75|cost: 4.0|A: IrANodoarriba
+nodo75[label="{EO: 75|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo28 -> nodo75;
-nodo76[label="{EO: 76|cost: 4.0|A: IrANododerecha
+nodo76[label="{EO: 76|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
@@ -863,154 +863,154 @@ nodo28 -> nodo76;
 nodo9 -> nodo28;
 
 nodo3 -> nodo9;
-nodo10[label="{EO: 10|cost: 2.0|A: IrANododerecha
+nodo10[label="{EO: 10|cost: 20.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nF7
 
 Visitados:\n
 D7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo29[label="{EO: 29|cost: 3.0|A: IrANodoabajo
+nodo29[label="{EO: 29|cost: 30.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nG7
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo77[label="{EO: 77|cost: 4.0|A: IrANodoabajo
+nodo77[label="{EO: 77|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo29 -> nodo77;
-nodo78[label="{EO: 78|cost: 4.0|A: IrANodoizquierda
+nodo78[label="{EO: 78|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo29 -> nodo78;
-nodo79[label="{EO: 79|cost: 4.0|A: IrANododerecha
+nodo79[label="{EO: 79|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG8
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo29 -> nodo79;
 
 nodo10 -> nodo29;
-nodo30[label="{EO: 30|cost: 3.0|A: IrANodoarriba
+nodo30[label="{EO: 30|cost: 30.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nG7
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo80[label="{EO: 80|cost: 4.0|A: IrANodoizquierda
+nodo80[label="{EO: 80|cost: 40.0|A: IrANodoizquierda
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo30 -> nodo80;
-nodo81[label="{EO: 81|cost: 4.0|A: IrANodoarriba
+nodo81[label="{EO: 81|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo30 -> nodo81;
-nodo82[label="{EO: 82|cost: 4.0|A: IrANododerecha
+nodo82[label="{EO: 82|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG6
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo30 -> nodo82;
 
 nodo10 -> nodo30;
-nodo31[label="{EO: 31|cost: 3.0|A: IrANododerecha
+nodo31[label="{EO: 31|cost: 30.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nG7
 
 Visitados:\n
 D7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
-nodo83[label="{EO: 83|cost: 4.0|A: IrANodoabajo
+nodo83[label="{EO: 83|cost: 40.0|A: IrANodoabajo
 |
 Pos\nSmartToy:\nNodo:\nH7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo31 -> nodo83;
-nodo84[label="{EO: 84|cost: 4.0|A: IrANodoarriba
+nodo84[label="{EO: 84|cost: 40.0|A: IrANodoarriba
 |
 Pos\nSmartToy:\nNodo:\nH7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 
 nodo31 -> nodo84;
-nodo85[label="{EO: 85|cost: 4.0|A: IrANododerecha
+nodo85[label="{EO: 85|cost: 40.0|A: IrANododerecha
 |
 Pos\nSmartToy:\nNodo:\nH7
 
 Visitados:\n
 D7\nD7\nD7\nD7\nE7\n
 Obstaculos:\n
-D6\nD8\nC7\n
+D6\nD8\n
 
 }"]
 

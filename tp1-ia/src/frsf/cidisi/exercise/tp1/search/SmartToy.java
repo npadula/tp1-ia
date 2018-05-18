@@ -1,5 +1,6 @@
 package frsf.cidisi.exercise.tp1.search;
 
+
 import frsf.cidisi.exercise.tp1.search.actions.IrANodo;
 
 import frsf.cidisi.faia.agent.Perception;
@@ -8,6 +9,7 @@ import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgent;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.solver.search.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Vector;
@@ -48,7 +50,8 @@ public class SmartToy extends SearchBasedAgent {
 
         // Create the search strategy
         //DepthFirstSearch strategy = new DepthFirstSearch();          
-    	BreathFirstSearch strategy = new BreathFirstSearch(); 
+    	//BreathFirstSearch strategy = new BreathFirstSearch();
+    	UniformCostSearch strategy = new UniformCostSearch(new CostFunction());
         // Create a Search object with the strategy
         Search searchSolver = new Search(strategy);
 

@@ -35,8 +35,10 @@ public class EstadoCasa extends EnvironmentState {
     
     public void generarObstaculos(){
     	grafo.nodos.get("D6").obstaculo = true;
-    	grafo.nodos.get("C7").obstaculo = true;
+//    	grafo.nodos.get("C7").obstaculo = true;
     	grafo.nodos.get("D8").obstaculo = true;
+    	grafo.nodos.get("E7").costo = 20;
+    	grafo.nodos.get("C7").costo = 5;
     }
 
     /**
