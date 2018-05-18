@@ -18,18 +18,25 @@ public class EstadoCasa extends EnvironmentState {
 	private Grafo grafo;
 	private Nodo posicionNinio;//posicion aproximada del ninio 
 	public String posicionRealNinio;
-    private ArrayList<Nodo> ListaObstaculos;
     //private Other ListaSeniales;
     private Nodo PosicionSmartToy;
     Principal ventana;
 	
     public EstadoCasa() {
         grafo= new Grafo(10,10);
-        ListaObstaculos = new ArrayList<Nodo>();//Llenar 
+        
+
 
         //ListaSeniales
         
         this.initState();
+    }
+    
+    
+    public void generarObstaculos(){
+    	grafo.nodos.get("D6").obstaculo = true;
+    	grafo.nodos.get("C7").obstaculo = true;
+    	grafo.nodos.get("D8").obstaculo = true;
     }
 
     /**
@@ -39,13 +46,16 @@ public class EstadoCasa extends EnvironmentState {
     public void initState() {
     	String posAgente = "D7";
     	String posNinioAprox = "A2";
-    	String posNinioReal = "F7";
+    	String posNinioReal = "C3";
         
     	this.posicionRealNinio = posNinioReal;
         grafo.nodos.get(posNinioReal).hayNinio = true; //posicion REAL del niño 
         this.setPosicionSmartToy(grafo.nodos.get(posAgente));
     	this.setPosicionNinio(grafo.nodos.get(posNinioAprox));
         ventana = new Principal(PosicionSmartToy,grafo.nodos.get(posAgente));
+        
+        
+        generarObstaculos();
         
     }
 
@@ -73,13 +83,7 @@ public class EstadoCasa extends EnvironmentState {
      public void setPosicionNinio(Nodo arg){
         posicionNinio = arg;
      }
-     public  ArrayList<Nodo> getListaObstaculos(){
-        return ListaObstaculos;
-     }
-     public void setListaObstaculos(ArrayList <Nodo> arg){
-        ListaObstaculos = arg;
-     }
-     
+
  
      
      
@@ -99,10 +103,6 @@ public class EstadoCasa extends EnvironmentState {
      
      public Grafo getGrafo(){
     	 return this.grafo;
-     }
-     
-     public void addObstaculo(Nodo n){
-    	 this.ListaObstaculos.add(n);
      }
 
 	public Nodo getNodo(Nodo origen, String direccion) {

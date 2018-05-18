@@ -17,15 +17,25 @@ public class SmartToyPerception extends Perception {
 	
 	//TODO: Setup Sensors
 	public Nodo posicionAproximadaNinio;//recibe Habitacion
+	
+	//Terreno
 	public  String terrenoIzq;
 	public  String terrenoDer;
 	public  String terrenoAbajo;
 	public  String terrenoArriba;
 	
+	//Hay ninio
 	public boolean hayArriba;
 	public boolean hayAbajo;
 	public boolean hayIzquierda;
 	public boolean hayDerecha;
+	
+	
+	// Obstaculos
+	public boolean obstaculoArriba;
+	public boolean obstaculoAbajo;
+	public boolean obstaculoIzquierda;
+	public boolean obstaculoDerecha;
 	
 	
 	public boolean ninioCerca;
@@ -45,6 +55,12 @@ public class SmartToyPerception extends Perception {
     	hayAbajo = true;
     	hayIzquierda = true;
     	hayDerecha = true;
+    	
+    	
+    	obstaculoArriba = false;
+    	obstaculoAbajo= false;
+    	obstaculoIzquierda= false;
+    	obstaculoDerecha= false;
     	
     }
 
@@ -68,10 +84,10 @@ public class SmartToyPerception extends Perception {
     public String toString() {
         String str = "";
         
-        str += "Arriba - CAMINO: " + Boolean.toString(hayArriba) + " TERRENO: " + terrenoArriba + "\n"; 
-        str += "Abajo - CAMINO: " + Boolean.toString(hayAbajo) + " TERRENO: " + terrenoAbajo + "\n";
-        str += "Izquierda - CAMINO: " + Boolean.toString(hayIzquierda) + " TERRENO: " + terrenoIzq + "\n";
-        str += "Derecha - CAMINO: " + Boolean.toString(hayDerecha) + " TERRENO: " + terrenoDer + "\n";
+        str += "Arriba - CAMINO: " + Boolean.toString(hayArriba) + " TERRENO: " + terrenoArriba + " OBSTACULO: " + Boolean.toString(obstaculoArriba) + "\n"; 
+        str += "Abajo - CAMINO: " + Boolean.toString(hayAbajo) + " TERRENO: " + terrenoAbajo +  " OBSTACULO: " + Boolean.toString(obstaculoAbajo) + "\n";
+        str += "Izquierda - CAMINO: " + Boolean.toString(hayIzquierda) + " TERRENO: " + terrenoIzq +   " OBSTACULO: " + Boolean.toString(obstaculoIzquierda) + "\n";
+        str += "Derecha - CAMINO: " + Boolean.toString(hayDerecha) + " TERRENO: " + terrenoDer +  " OBSTACULO: " + Boolean.toString(obstaculoDerecha) +  "\n";
         
         return str.toString();
     }
@@ -83,21 +99,6 @@ public class SmartToyPerception extends Perception {
         return posicionAproximadaNinio;
      }
      
-/*     public void getPosicionAproxNinio(int arg){
-        this.posicionaproxninio = arg;
-     }
-     public int getsSniales(){
-        return seniales;
-     }
-     public void setsSniales(int arg){
-        this.seniales = arg;
-     }
-     public int getObstaculos(){
-        return obstaculos;
-     }
-     public void setObstaculos(int arg){
-        this.obstaculos = arg;
-     }*/
-	
+
    
 }

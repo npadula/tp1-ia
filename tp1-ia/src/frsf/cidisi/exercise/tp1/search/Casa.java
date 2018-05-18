@@ -33,30 +33,45 @@ public class Casa extends Environment {
          p.posicionAproximadaNinio = estadoCasa.getPosicionNinio();
          
          Nodo arriba = estadoCasa.getNodo(nodoActual, "arriba");
-         if(arriba != null)
+         if(arriba != null){
+        	 p.obstaculoArriba = arriba.obstaculo;
          	p.terrenoArriba = arriba.costo > 10 ? "LENTO" : "RAPIDO";
-         else
+         	}
+         else{
+        	p.obstaculoArriba = false;
          	p.hayArriba = false;
+         	}
          	
          
          Nodo abajo = estadoCasa.getNodo(nodoActual, "abajo");
-         if(abajo != null)
+         if(abajo != null){
+        	p.obstaculoAbajo = abajo.obstaculo;
          	p.terrenoAbajo = abajo.costo > 10 ? "LENTO" : "RAPIDO";
-         else
+         	}
+         else{
+        	 	p.obstaculoAbajo = false;
             	p.hayAbajo = false;
+            	}
 
          Nodo derecha = estadoCasa.getNodo(nodoActual, "derecha");
-         if(derecha != null)
+         if(derecha != null){
+        	p.obstaculoDerecha = derecha.obstaculo;
          	p.terrenoDer = derecha.costo > 10 ? "LENTO" : "RAPIDO";
-     	else
+         	}
+     	else{
+     		p.obstaculoDerecha = false;
      		p.hayDerecha = false;
+     		}
          
          Nodo izq = estadoCasa.getNodo(nodoActual, "izquierda");
-         if(izq != null)
+         if(izq != null){
+        	 p.obstaculoIzquierda = izq.obstaculo;
          	p.terrenoIzq = izq.costo > 10 ? "LENTO" : "RAPIDO";
-     	else
+         	}
+     	else{
+     		p.obstaculoIzquierda = false;
      		p.hayIzquierda = false;
-         
+     	}
          
          p.ninioCerca = (
         		 (izq != null && izq.hayNinio)

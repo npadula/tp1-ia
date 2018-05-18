@@ -22,9 +22,7 @@ public class Grafo {
 		
 		crearNodos();
 		crearTransiciones();
-		
-		if(rowSize >= 33 || colSize >= 27)
-		crearParedes();
+
 	}
 	
 	
@@ -37,38 +35,11 @@ public class Grafo {
 
 		crearNodos();
 		crearTransiciones();
-		crearParedes();
+
 		
 	
 	}
-	
-	//TODO: Ahora modificar un costo implica modificar un unico nodo
-	private void modificarCosto(String idOrigen, String idDestino, int nuevoCosto, boolean bidireccional){
-	/*	Nodo origen = nodos.get(idOrigen);
-		Nodo destino = nodos.get(idDestino);
-		ArrayList<Transicion> transOrigen = transiciones.get(origen.Id);
-		ArrayList<Transicion> transDestino = transiciones.get(destino.Id);
-		
-		
-		for(Transicion t : transOrigen){
-			if(t.destino.equals(destino)){
-				t.costo = nuevoCosto;
-				break;
-			}
-		}
-		
-		if(bidireccional){
-			for(Transicion t : transDestino){
-				if(t.destino.equals(origen)){
-					t.costo = nuevoCosto;
-					break;
-				}
-			}
-		}
-		*/
-		
-		
-	}
+
 	
 	
 	public void crearTerrenos(){
@@ -79,42 +50,7 @@ public class Grafo {
 	}
 	
 	
-	private void paredEntre(String idOrigen, String idDestino){
-		//Las paredes impiden el paso entre un nodo y otro, por lo cual se implementa borrando las transiciones entre dichos nodos
-		Nodo origen = nodos.get(idOrigen);
-		Nodo destino = nodos.get(idDestino);
-		
-		ArrayList<Nodo> transicionesDeOrigen = transiciones.get(origen.Id);
-		
-		for(int i = 0; i < transicionesDeOrigen.size(); i++){
-			Nodo n = transicionesDeOrigen.get(i);
-			
-			if(n.equals(destino)){
-				transicionesDeOrigen.remove(n);
-				break;
-			}
-		}
-		
-		ArrayList<Nodo> transicionesDeDestino = transiciones.get(destino.Id);
-		
-		for(int i = 0; i < transicionesDeDestino.size(); i++){
-			Nodo n = transicionesDeDestino.get(i);
-			
-			if(n.equals(origen)){
-				transicionesDeDestino.remove(n);
-				break;
-			}
-		}
-		
-		
-	}
-	
-	protected void crearParedes(){
-	
 
-
-	}
-	
 	public String generarLetra(int num){
 		String letra = "";
 		int codigoLetra = 64 + num;
@@ -256,36 +192,16 @@ public class Grafo {
 	}
 
 
-	//Actualiza la data recibida desde la percepcion
-	public void update(Nodo nuevoNodo) {
-		
-		//nodo_grafo.visitado = nodoDestino.visitado;
 
-		if(nuevoNodo != null){
-			
-			
-			Nodo nodoGrafo = this.nodos.get(nuevoNodo.Id); 
-			
-			if(nodoGrafo != null){
-				nodoGrafo.hayNinio = nuevoNodo.hayNinio;
-				nodoGrafo.costo = nuevoNodo.costo;
-			
-			}
-		}
-		
-
-
-	}
-	
 	public Grafo clone(){
 		//logica clonar grafo
 		Grafo grafoClonado = new Grafo(colSize, rowSize);
 		
-		for(Nodo unNodo: this.nodos.values()){
+		for(Nodo unNodo: nodos.values()){
 			Nodo nodoClon = grafoClonado.nodos.get(unNodo.Id);
 			nodoClon.hayNinio = unNodo.hayNinio;
-			nodoClon.visitado = unNodo.visitado;
 			nodoClon.costo = unNodo.costo;
+			nodoClon.obstaculo = unNodo.obstaculo;
 			
 		
 		}

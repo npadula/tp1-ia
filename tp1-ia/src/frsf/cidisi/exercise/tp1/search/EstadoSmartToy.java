@@ -34,8 +34,21 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         this.initState();
     }
     
+    
+    public boolean hayObstaculo(String idNodo){
+    	Nodo n = this.grafo.nodos.get(idNodo);
+    	
+    	if(n != null)
+    		return n.obstaculo;
+    	else return true;
+    }
      
 
+    public void addObstaculo(String idNodo){
+    	Nodo n = this.grafo.nodos.get(idNodo);
+    	if(n != null)
+    		n.obstaculo = true;
+    }
     /**
      * This method clones the state of the agent. It's used in the search
      * process, when creating the search tree.
@@ -70,38 +83,75 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         
         if(p.hayArriba){
         	nodoActualizar = grafo.getNodo(nodoActual, "arriba");
-        	if(p.terrenoArriba == "RAPIDO")
+        	if(p.terrenoArriba.equals("RAPIDO"))
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoArriba == "LENTO")
+        	else if(p.terrenoArriba.equals("LENTO"))
         		nodoActualizar.costo = 20;
+        	
+        	
+        	if(p.obstaculoArriba)
+        		nodoActualizar.obstaculo = true;
+        	else
+        		nodoActualizar.obstaculo = false;
+        	
+        	grafo.nodos.put(nodoActualizar.Id, nodoActualizar);
         }
         
         if(p.hayAbajo){
         	nodoActualizar = grafo.getNodo(nodoActual, "abajo");
-        	if(p.terrenoAbajo == "RAPIDO")
+        	if(p.terrenoAbajo.equals("RAPIDO"))
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoAbajo == "LENTO")
+        	else if(p.terrenoAbajo.equals("LENTO"))
         		nodoActualizar.costo = 20;
+        	
+        	
+        	if(p.obstaculoAbajo)
+        		nodoActualizar.obstaculo = true;
+        	else
+        		nodoActualizar.obstaculo = false;
+        	
+        	grafo.nodos.put(nodoActualizar.Id, nodoActualizar);
         }
         
         
         if(p.hayIzquierda){
         	nodoActualizar = grafo.getNodo(nodoActual, "izquierda");
-        	if(p.terrenoIzq == "RAPIDO")
+        	if(p.terrenoIzq.equals("RAPIDO"))
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoIzq == "LENTO")
+        	else if(p.terrenoIzq.equals( "LENTO"))
         		nodoActualizar.costo = 20;
+        	
+        	
+        	
+        	if(p.obstaculoIzquierda)
+        		nodoActualizar.obstaculo = true;
+        	else
+        		nodoActualizar.obstaculo = false;
+        	
+        	grafo.nodos.put(nodoActualizar.Id, nodoActualizar);
         }
         
         
         
         if(p.hayDerecha){
         	nodoActualizar = grafo.getNodo(nodoActual, "derecha");
-        	if(p.terrenoDer == "RAPIDO")
+        	if(p.terrenoDer.equals("RAPIDO"))
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoDer == "LENTO")
+        	else if(p.terrenoDer.equals("LENTO"))
         		nodoActualizar.costo = 20;
+        	
+        	
+        	if(p.obstaculoDerecha)
+        		nodoActualizar.obstaculo = true;
+        	else
+        		nodoActualizar.obstaculo = false;
+        	
+        	grafo.nodos.put(nodoActualizar.Id, nodoActualizar);
+        	
         }
+        
+        
+        
         
         
         hayNinio = p.ninioCerca;
@@ -133,10 +183,23 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public String toString() {
-        String str = "Estado AGENTE: \n";
+        String str = "\n";
         
         //str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
         str += "Pos SmartToy: " + this.nodoActual.toString() + "\n";
+        str+= "Visitados: \n";
+        for(String s : visitados){
+        	str += s + ", ";
+        }
+        str+= "\n";
+        
+        str+= "Obstaculos: \n";
+        
+        for(Nodo n : grafo.nodos.values()){
+        	if(n.obstaculo)
+        		str+= n.Id + ", ";
+        }
+        str+= "\n";
         
         return str;
         
@@ -163,8 +226,14 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     	        //System.out.println(pair.getKey() + " = " + pair.getValue());
     	        it.remove(); // avoids a ConcurrentModificationException
     	    }
+    	  boolean ninio = hayNinio == estadoComparado.hayNinio;
+    	  boolean mismosVisitados = true;
     	  
-    	 return mismaPosicion && mismoMundo && mismoVisitado;
+    	  for(String id : visitados){
+    		  if(!estadoComparado.visitados.contains(id))
+    			  mismosVisitados = false;
+    	  }
+    	 return mismaPosicion && mismoMundo && mismoVisitado && mismosVisitados && ninio;
     }
 
     //TODO: Complete this section with agent-specific methods

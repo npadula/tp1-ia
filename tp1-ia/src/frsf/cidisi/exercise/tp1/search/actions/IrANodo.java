@@ -37,8 +37,9 @@ public class IrANodo extends SearchAction {
        
        
        Nodo proxNodo = agState.grafo.getNodo(nodoActual, direccion);
+       boolean obstaculo = proxNodo != null ? proxNodo.obstaculo : true;
        
-       if(proxNodo != null && !agState.fueVisitado(proxNodo.Id)){
+       if(proxNodo != null && !agState.fueVisitado(proxNodo.Id) && !obstaculo){
        	agState.nodoActual = proxNodo;
        	//agState.visitados.add(proxNodo.Id);
        	
@@ -66,8 +67,9 @@ public class IrANodo extends SearchAction {
        
         
         Nodo proxNodo = agState.grafo.getNodo(nodoActual, direccion);
+        boolean obstaculo = proxNodo.obstaculo;
         
-        if(proxNodo != null && !agState.fueVisitado(proxNodo.Id)){
+        if(proxNodo != null && !agState.fueVisitado(proxNodo.Id) && !obstaculo){
         	agState.nodoActual = proxNodo;
         	agState.visitados.add(proxNodo.Id);
         	

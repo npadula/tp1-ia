@@ -1,15 +1,14 @@
 package domain;
 
 public class Nodo {
-	public String Id;
+	public String Id = "";
 	public String habitacion;
 	public String tipoPiso;
 	public int posX;
 	public int posY;
-	public boolean hayNinio;
-	public int visitado;
-	public int costo;
-	
+	public boolean hayNinio = false;
+	public int costo = 10;
+	public boolean obstaculo = false;
 	
 	public Nodo(){
 
@@ -23,7 +22,6 @@ public class Nodo {
 		this.Id = id;
 		this.hayNinio = false;
 		this.costo = costo;
-		this.visitado = 0;
 	}
 	
 	
@@ -35,8 +33,8 @@ public class Nodo {
 		nuevo.posY = this.posY;
 		nuevo.habitacion = this.habitacion;
 		nuevo.tipoPiso = this.tipoPiso;
-		nuevo.visitado = this.visitado;
 		nuevo.costo = this.costo;
+		nuevo.obstaculo = this.obstaculo;
 		return nuevo;
 	}
 	
@@ -50,6 +48,6 @@ public class Nodo {
 			
 		Nodo nodo = (Nodo) n;
 		
-		return nodo.Id.equals(this.Id) && (nodo.hayNinio == this.hayNinio) && nodo.visitado == this.visitado ;
+		return nodo.Id.equals(this.Id) && (nodo.hayNinio == this.hayNinio) && (this.costo == nodo.costo) && (this.obstaculo == nodo.obstaculo);
 	}
 }
