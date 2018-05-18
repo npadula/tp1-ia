@@ -164,7 +164,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     @Override
     public void initState() {
     	String posAgente = "D7";
-    	String posNinioAprox = "A8";
+    	String posNinioAprox = "F10";
     	
     	posicionNinio = grafo.nodos.get(posNinioAprox);
     	nodoActual =  grafo.nodos.get(posAgente);

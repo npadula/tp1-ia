@@ -25,10 +25,11 @@ public class SmartToy extends SearchBasedAgent {
 
         // Create the operators
         Vector<SearchAction> operators = new Vector<SearchAction>();
-        operators.addElement(new IrANodo("arriba"));
-        operators.addElement(new IrANodo("derecha"));
+
         operators.addElement(new IrANodo("abajo"));
         operators.addElement(new IrANodo("izquierda"));
+        operators.addElement(new IrANodo("arriba"));
+        operators.addElement(new IrANodo("derecha"));
         
         
         

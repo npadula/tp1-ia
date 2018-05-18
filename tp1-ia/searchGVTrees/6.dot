@@ -1,94 +1,14 @@
 digraph g {
 node [shape = Mrecord];
 nodo0[label="{EO: 0|cost: 0.0|A: null}"]
-nodo1[label="{EO: 1|cost: 1.0|A: IrANodoizquierda
+nodo1[label="{EO: 1|cost: 1.0|A: IrANodoarriba
 }"]
-nodo2[label="{EO: 2|cost: 2.0|A: IrANodoarriba
-|
-Pos\nSmartToy:\nNodo:\nB8
-
-Visitados:\n
-D7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-nodo5[label="{EO: 5|cost: 3.0|A: IrANodoarriba
-|
-Pos\nSmartToy:\nNodo:\nB7
-
-Visitados:\n
-D7\nD7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-
-nodo2 -> nodo5;
-nodo6[label="{EO: 6|cost: 3.0|A: IrANodoizquierda
-|
-Pos\nSmartToy:\nNodo:\nB7
-
-Visitados:\n
-D7\nD7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-
-nodo2 -> nodo6;
-
-nodo1 -> nodo2;
-nodo3[label="{EO: 3|cost: 2.0|A: IrANodoabajo
-|
-Pos\nSmartToy:\nNodo:\nB8
-
-Visitados:\n
-D7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-nodo7[label="{EO: 7|cost: 3.0|A: IrANodoabajo
-|
-Pos\nSmartToy:\nNodo:\nB9
-
-Visitados:\n
-D7\nD7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-
-nodo3 -> nodo7;
-nodo8[label="{EO: 8|cost: 3.0|A: IrANodoizquierda
-|
-Pos\nSmartToy:\nNodo:\nB9
-
-Visitados:\n
-D7\nD7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-
-nodo3 -> nodo8;
-
-nodo1 -> nodo3;
-nodo4[label="{EO: 4|cost: 2.0|A: IrANodoizquierda
-|
-Pos\nSmartToy:\nNodo:\nB8
-
-Visitados:\n
-D7\nD7\nE7\nE8\nE9\nD9\nC9\nC8\n
-Obstaculos:\n
-D6\nD8\nC7\n
-
-}"]
-
-nodo1 -> nodo4;
 
 nodo0 -> nodo1;
+nodo2[label="{EO: 2|cost: 1.0|A: IrANododerecha
+}"]
+
+nodo0 -> nodo2;
 
 
 }
