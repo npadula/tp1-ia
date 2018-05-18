@@ -7,8 +7,8 @@ public class Nodo {
 	public int posX;
 	public int posY;
 	public boolean hayNinio = false;
-	public int costo = 10;
 	public boolean obstaculo = false;
+	public int costo = 10;
 	
 	public Nodo(){
 
@@ -34,7 +34,6 @@ public class Nodo {
 		nuevo.habitacion = this.habitacion;
 		nuevo.tipoPiso = this.tipoPiso;
 		nuevo.costo = this.costo;
-		nuevo.obstaculo = this.obstaculo;
 		return nuevo;
 	}
 	
@@ -48,6 +47,6 @@ public class Nodo {
 			
 		Nodo nodo = (Nodo) n;
 		
-		return nodo.Id.equals(this.Id) && (nodo.hayNinio == this.hayNinio) && (this.costo == nodo.costo) && (this.obstaculo == nodo.obstaculo);
+		return nodo.Id.equals(this.Id) && (nodo.hayNinio == this.hayNinio) && (this.costo == nodo.costo) ;
 	}
 }

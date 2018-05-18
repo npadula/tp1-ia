@@ -45,7 +45,7 @@ public class EstadoCasa extends EnvironmentState {
     @Override
     public void initState() {
     	String posAgente = "D7";
-    	String posNinioAprox = "A2";
+    	String posNinioAprox = "A8";
     	String posNinioReal = "C3";
         
     	this.posicionRealNinio = posNinioReal;
@@ -81,19 +81,8 @@ public class EstadoCasa extends EnvironmentState {
         return posicionNinio;
      }
      public void setPosicionNinio(Nodo arg){
-        posicionNinio = arg;
-     }
+        posicionNinio = arg;}
 
- 
-     
-     
-     /*public Other getListaSeniales(){
-        return ListaSeniales;
-     }
-     
-     public void setListaSeniales(Other arg){
-        ListaSeniales = arg;
-     }*/
      public Nodo getPosicionSmartToy(){
         return PosicionSmartToy;
      }
