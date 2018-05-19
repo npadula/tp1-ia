@@ -24,6 +24,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public boolean aproxVisitado = false;
     public boolean hayNinio = false;
     public Principal ventanita;
+    public double costoTotal = 0;
 
     
     public EstadoSmartToy() {
@@ -197,6 +198,8 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         }
         str+= "\n";
         
+        str+= "Costo Total: " + Double.toString(costoTotal) + "\n";
+        str+= "\n";
         
         
        /* for(Nodo n : grafo.nodos.values()){
