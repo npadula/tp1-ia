@@ -1,5 +1,8 @@
 package frsf.cidisi.exercise.tp1.search;
 
+
+import domain.Nodo;
+import frsf.cidisi.exercise.tp1.search.actions.IrANodo;
 import frsf.cidisi.faia.solver.search.IStepCostFunction;
 import frsf.cidisi.faia.solver.search.NTree;
 
@@ -17,6 +20,19 @@ public class CostFunction implements IStepCostFunction {
         
         //TODO: Complete Method
         
-        return 0;
+    	String dir;
+		IrANodo accion = (IrANodo)node.getAction();
+    	
+		if(accion == null)
+			return 0;
+		
+		
+		dir = accion.direccion;
+		EstadoSmartToy estado = (EstadoSmartToy) node.getParent().getAgentState();
+		Nodo proxNodo = estado.grafo.getNodo(estado.nodoActual, dir);
+		
+		return proxNodo.costo;
+		
+
     }
 }

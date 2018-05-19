@@ -35,7 +35,10 @@ public class Casa extends Environment {
          Nodo arriba = estadoCasa.getNodo(nodoActual, "arriba");
          if(arriba != null){
         	 p.obstaculoArriba = arriba.obstaculo;
-         	p.terrenoArriba = arriba.costo > 10 ? "LENTO" : "RAPIDO";
+         	 if(arriba.costo > 10)
+         		 p.terrenoArriba = "LENTO";
+         	if(arriba.costo < 10)
+         		p.terrenoArriba = "RAPIDO";
          	}
          else{
         	p.obstaculoArriba = false;
@@ -46,7 +49,10 @@ public class Casa extends Environment {
          Nodo abajo = estadoCasa.getNodo(nodoActual, "abajo");
          if(abajo != null){
         	p.obstaculoAbajo = abajo.obstaculo;
-         	p.terrenoAbajo = abajo.costo > 10 ? "LENTO" : "RAPIDO";
+        	 if(abajo.costo > 10)
+         		 p.terrenoAbajo = "LENTO";
+         	if(abajo.costo < 10)
+         		p.terrenoAbajo = "RAPIDO";
          	}
          else{
         	 	p.obstaculoAbajo = false;
@@ -56,7 +62,10 @@ public class Casa extends Environment {
          Nodo derecha = estadoCasa.getNodo(nodoActual, "derecha");
          if(derecha != null){
         	p.obstaculoDerecha = derecha.obstaculo;
-         	p.terrenoDer = derecha.costo > 10 ? "LENTO" : "RAPIDO";
+		       	 if(derecha.costo > 10)
+		     		 p.terrenoDer = "LENTO";
+		     	if(derecha.costo < 10)
+		     		p.terrenoDer = "RAPIDO";
          	}
      	else{
      		p.obstaculoDerecha = false;
@@ -66,7 +75,10 @@ public class Casa extends Environment {
          Nodo izq = estadoCasa.getNodo(nodoActual, "izquierda");
          if(izq != null){
         	 p.obstaculoIzquierda = izq.obstaculo;
-         	p.terrenoIzq = izq.costo > 10 ? "LENTO" : "RAPIDO";
+	       	 if(izq.costo > 10)
+	     		 p.terrenoIzq = "LENTO";
+	     	if(izq.costo < 10)
+	     		p.terrenoIzq = "RAPIDO";
          	}
      	else{
      		p.obstaculoIzquierda = false;

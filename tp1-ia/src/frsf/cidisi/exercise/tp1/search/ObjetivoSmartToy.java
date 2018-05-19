@@ -21,7 +21,7 @@ public class ObjetivoSmartToy extends GoalTest {
     	if(!estadoSmartToy.getAproxVisitado() && idActual.equals(idAproxNinio) ){
     		return true;
     	}
-    	if(estadoSmartToy.aproxVisitado && !estadoSmartToy.fueVisitado(idActual)){
+    	if(estadoSmartToy.aproxVisitado && !estadoSmartToy.fueVisitado(idActual)){ //Reflexionar: esta condicion deberia ser solo la segunda parte del && ?
     		return true;
     	}
     	else //Caso contrario, falla
