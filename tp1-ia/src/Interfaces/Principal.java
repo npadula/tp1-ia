@@ -24,7 +24,7 @@ public class Principal extends JFrame implements ActionListener {
 		auto.setVisible(true);
 		int nenePosix= nNene.posX;
 		int nenePosiy = nNene.posY;
-		//ventana.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		ventana.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		nene.setBounds(nenePosix, nenePosiy, 25, 25);
 		nene.setSize(25, 25);
 		ventana.add(nene);
@@ -37,17 +37,20 @@ public class Principal extends JFrame implements ActionListener {
 		}
 	
 	
-	
-	
+	public void actualizarPosicionAuto(Nodo nodoActual){
+		//try{
+		//	Thread.sleep(700);
+		//}
+		//catch(Exception e){}
+		auto.setBounds(nodoActual.posX,nodoActual.posY, 25, 25);
+		auto.revalidate();
+	}
+
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	public void actualizarPosicionAuto(Nodo nodoActual){
-		auto.setBounds(nodoActual.posX,nodoActual.posY, 25, 25);
-		auto.revalidate();
 	}
 	
 }

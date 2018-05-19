@@ -52,7 +52,7 @@ public class EstadoCasa extends EnvironmentState {
         grafo.nodos.get(posNinioReal).hayNinio = true; //posicion REAL del niño 
         this.setPosicionSmartToy(grafo.nodos.get(posAgente));
     	this.setPosicionNinio(grafo.nodos.get(posNinioAprox));
-        ventana = new Principal(PosicionSmartToy,grafo.nodos.get(posAgente));
+        ventana = new Principal(this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio));
         
         
         generarObstaculos();

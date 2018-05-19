@@ -74,7 +74,7 @@ public class Grafo {
 				String idNodo = letra + Integer.toString(fila);
 				
 				int posX = nodeSize * (col - 1);
-				int posY = nodeSize * fila;
+				int posY = nodeSize * (fila - 1);
 				
 
 				 nodos.put(idNodo,new Nodo(idNodo,posX,posY,10));

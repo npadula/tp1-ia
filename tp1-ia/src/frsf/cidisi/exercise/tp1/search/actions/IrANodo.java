@@ -30,11 +30,7 @@ public class IrANodo extends SearchAction {
 		//System.out.println("Execute pensar");
         EstadoSmartToy agState = (EstadoSmartToy) s;
 
-        
-        
        Nodo nodoActual = agState.nodoActual;
-     
-       
        
        Nodo proxNodo = agState.grafo.getNodo(nodoActual, direccion);
        
@@ -76,7 +72,7 @@ public class IrANodo extends SearchAction {
         		agState.aproxVisitado = true;
         	
         	environmentState.setPosicionSmartToy(proxNodo);
-        	
+        	environmentState.modificarPosicionSmartToy(proxNodo); 
         	return environmentState;
         }
 
