@@ -36,7 +36,9 @@ public class IrANodo extends SearchAction {
        //!agState.fueVisitado(proxNodo.Id) &&
        if(proxNodo != null && !agState.fueVisitado(proxNodo.Id) && !agState.hayObstaculo(proxNodo.Id)){
        	agState.nodoActual = proxNodo;
+
        	//agState.visitados.add(proxNodo.Id);
+
     	if(proxNodo.Id.equals(agState.getPosicionNinio().Id))
     		agState.aproxVisitado = true;
        	
@@ -65,6 +67,7 @@ public class IrANodo extends SearchAction {
         if(proxNodo != null  && !agState.fueVisitado(proxNodo.Id) && !agState.hayObstaculo(proxNodo.Id)){
         	agState.nodoActual = proxNodo;
         	agState.visitados.add(proxNodo.Id);
+        	agState.costoTotal += proxNodo.costo;
         	
         	if(proxNodo.Id.equals(agState.getPosicionNinio().Id))
         		agState.aproxVisitado = true;

@@ -24,6 +24,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public boolean aproxVisitado = false;
     public boolean hayNinio = false;
     public Principal ventanita;
+    public double costoTotal = 0;
 
     
     public EstadoSmartToy() {
@@ -198,31 +199,40 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public String toString() {
+
         String str = "";
         str += "Pos SmartToy: " + this.nodoActual.toString();
-        /*//str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
-        String ultimoVisitado = visitados.get(visitados.size() - 1);
+  
+      
+	       /*
+	 String str = "\n";
+        
+        str += "Pos SmartToy: " + this.nodoActual.toString() + "\n";
+        str+= "Visitados: \n";
+        for(String s : visitados){
+        	str += s + ", ";
+        }
+        str+= "\n";
+        
+        str+= "Obstaculos: \n";
+        for(String s : obstaculos){
+        	str += s + ", ";
+        }
+        str+= "\n";
+        
+        str+= "Costo Total: " + Double.toString(costoTotal) + "\n";
+        str+= "\n";
+        
+        
+        for(Nodo n : grafo.nodos.values()){
+        	if(n.obstaculo)
+        		str+= n.Id + ", ";
+        }
+        str+= "\n";
+
+	       */
+
        
-	       /* str+= "Visitados: \n";
-	        for(String s : visitados){
-	        	str += s + ", ";
-	        }
-	        str+= "\n";
-	        
-	        str+= "Obstaculos: \n";
-	        for(String s : obstaculos){
-	        	str += s + ", ";
-	        }
-	        str+= "\n";
-	        
-	        
-	        
-	       /* for(Nodo n : grafo.nodos.values()){
-	        	if(n.obstaculo)
-	        		str+= n.Id + ", ";
-	        str+= "\n";
-	
-	        }*/
         
         return str;
         
