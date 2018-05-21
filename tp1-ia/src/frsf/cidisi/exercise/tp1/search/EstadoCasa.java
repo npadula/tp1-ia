@@ -1,6 +1,7 @@
 package frsf.cidisi.exercise.tp1.search; 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -21,43 +22,70 @@ public class EstadoCasa extends EnvironmentState {
     //private Other ListaSeniales;
     private Nodo PosicionSmartToy;
     Principal ventana;
+    private int columna = 11;
+    private int fila = 11;
 	
     public EstadoCasa() {
-        grafo= new Grafo(10,10);
-        
-
-
-        //ListaSeniales
+        grafo= new Grafo(columna,fila);
         
         this.initState();
     }
     
     
     public void generarObstaculos(){
-    	grafo.nodos.get("D6").obstaculo = true;
-//    	grafo.nodos.get("C7").obstaculo = true;
+    	grafo.nodos.get("A4").obstaculo = true;//paredes
+    	grafo.nodos.get("A8").obstaculo = true;
+    	grafo.nodos.get("B4").obstaculo = true;
+    	grafo.nodos.get("B8").obstaculo = true;
+    	grafo.nodos.get("C4").obstaculo = true;
+    	grafo.nodos.get("C8").obstaculo = true;
+    	grafo.nodos.get("D4").obstaculo = true;
+    	grafo.nodos.get("D8").obstaculo = true;//paredes
+    	grafo.nodos.get("H1").obstaculo = true;
+    	grafo.nodos.get("H2").obstaculo = true;
+    	grafo.nodos.get("H3").obstaculo = true;
+    	grafo.nodos.get("H4").obstaculo = true;//paredes
+    	grafo.nodos.get("G8").obstaculo = true;
+    	grafo.nodos.get("G9").obstaculo = true;
+    	grafo.nodos.get("G10").obstaculo = true;
+    	grafo.nodos.get("G11").obstaculo = true;
+    	grafo.nodos.get("I7").obstaculo = true;
+    	grafo.nodos.get("J7").obstaculo = true;
+    	grafo.nodos.get("K7").obstaculo = true;//paredes
+    	
     	grafo.nodos.get("D8").obstaculo = true;
     	grafo.nodos.get("E7").costo = 20;
     	grafo.nodos.get("C7").costo = 5;
-    }
+    }	
 
     /**
      * This method is used to setup the initial real world.
      */
     @Override
     public void initState() {
-    	String posAgente = "D7";
-    	String posNinioAprox = "A8";
-    	String posNinioReal = "C3";
+		ArrayList<Nodo> nodosObstaculo= new ArrayList<Nodo>();
+	    ArrayList<Nodo> nodosLentos= new ArrayList<Nodo>();
+	    ArrayList<Nodo> nodosRapidos= new ArrayList<Nodo>();
+    	
+	    String posAgente = "C2";
+    	String posNinioAprox = "H8";
+    	String posNinioReal = "K10";
         
     	this.posicionRealNinio = posNinioReal;
         grafo.nodos.get(posNinioReal).hayNinio = true; //posicion REAL del niño 
         this.setPosicionSmartToy(grafo.nodos.get(posAgente));
     	this.setPosicionNinio(grafo.nodos.get(posNinioAprox));
-        ventana = new Principal(this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio));
+    	
+    	//obstaculos para graficar
+    	//agua para graficar C7
+    	//lento en E7
         
-        
-        generarObstaculos();
+    	 generarObstaculos();
+    	 
+    	 nodosLentos.add(grafo.nodos.get("E7"));
+    	 nodosRapidos.add(grafo.nodos.get("C7"));
+     
+        ventana = new Principal(columna, fila, this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio) , this.grafo.nodos.get(posNinioAprox)  , grafo.nodos.values(),nodosRapidos,nodosLentos);
         
     }
 
@@ -66,14 +94,15 @@ public class EstadoCasa extends EnvironmentState {
      */
     @Override
     public String toString() {
-        String str = "Estado CASA: \n";
+        /*String str = "Estado CASA: \n";
         
         str += "Posicion REAL Ninio: " + this.posicionRealNinio + "\n";
         str += "Pos SmartToy: " + this.getPosicionSmartToy().toString() + "\n";
         
         //TODO: Complete Method
 
-        return str;
+        return str;*/
+    	return "";
     }
 
 	//TODO: Complete this section with agent-specific methods

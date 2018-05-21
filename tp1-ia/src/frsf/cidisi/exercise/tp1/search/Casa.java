@@ -57,7 +57,7 @@ public class Casa extends Environment {
          else{
         	 	p.obstaculoAbajo = false;
             	p.hayAbajo = false;
-            	}
+         }
 
          Nodo derecha = estadoCasa.getNodo(nodoActual, "derecha");
          if(derecha != null){

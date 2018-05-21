@@ -28,18 +28,17 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     
     public EstadoSmartToy() {
     	
-	    grafo= new Grafo(10,10);
+	    grafo= new Grafo(11,11);
 	    posicionNinio= new Nodo();
 	    visitados = new ArrayList<String>();
 	    obstaculos = new ArrayList<String>();
+	    
 
         this.initState();
     }
     
     
     public boolean hayObstaculo(String idNodo){
-
-    	
     	return obstaculos.contains(idNodo);
     }
      
@@ -90,7 +89,6 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         	else if(p.terrenoArriba.equals("LENTO"))
         		nodoActualizar.costo = 20;
         	
-
         	
         	if(p.obstaculoArriba){
         		if(!obstaculos.contains(nodoActualizar.Id))
@@ -119,7 +117,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         	nodoActualizar = grafo.getNodo(nodoActual, "izquierda");
         	if(p.terrenoIzq.equals("RAPIDO"))
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoIzq.equals( "LENTO"))
+        	else if(p.terrenoIzq.equals("LENTO"))
         		nodoActualizar.costo = 20;
         	
         	
@@ -149,12 +147,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         }
         
         
-        
-        
-        
         hayNinio = p.ninioCerca;
-        
-       
 
     }
 
@@ -163,14 +156,38 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public void initState() {
-    	String posAgente = "D7";
-    	String posNinioAprox = "F10";
+    	String posAgente = "C2";
+    	String posNinioAprox = "H8";
     	
     	posicionNinio = grafo.nodos.get(posNinioAprox);
     	nodoActual =  grafo.nodos.get(posAgente);
     	visitados.add(nodoActual.Id);
     	
     	
+    	grafo.nodos.get("A4").obstaculo = true;//paredes
+    	grafo.nodos.get("A8").obstaculo = true;
+    	grafo.nodos.get("B4").obstaculo = true;
+    	grafo.nodos.get("B8").obstaculo = true;
+    	grafo.nodos.get("C4").obstaculo = true;
+    	grafo.nodos.get("C8").obstaculo = true;
+    	grafo.nodos.get("D4").obstaculo = true;
+    	grafo.nodos.get("D8").obstaculo = true;//paredes
+    	grafo.nodos.get("H1").obstaculo = true;
+    	grafo.nodos.get("H2").obstaculo = true;
+    	grafo.nodos.get("H3").obstaculo = true;
+    	grafo.nodos.get("H4").obstaculo = true;//paredes
+    	grafo.nodos.get("G8").obstaculo = true;
+    	grafo.nodos.get("G9").obstaculo = true;
+    	grafo.nodos.get("G10").obstaculo = true;
+    	grafo.nodos.get("G11").obstaculo = true;
+    	grafo.nodos.get("I7").obstaculo = true;
+    	grafo.nodos.get("J7").obstaculo = true;
+    	grafo.nodos.get("K7").obstaculo = true;//paredes
+    	for(Nodo unNodo: grafo.nodos.values()){
+    		if(unNodo.obstaculo){
+    			obstaculos.add(unNodo.Id);
+    		}
+    	}
     	//ventanita = new Principal(nodoActual,posicionNinio);
         
     	
@@ -181,29 +198,31 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public String toString() {
-        String str = "\n";
-        
-        //str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
-        str += "Pos SmartToy: " + this.nodoActual.toString() + "\n";
-        str+= "Visitados: \n";
-        for(String s : visitados){
-        	str += s + ", ";
-        }
-        str+= "\n";
-        
-        str+= "Obstaculos: \n";
-        for(String s : obstaculos){
-        	str += s + ", ";
-        }
-        str+= "\n";
-        
-        
-        
-       /* for(Nodo n : grafo.nodos.values()){
-        	if(n.obstaculo)
-        		str+= n.Id + ", ";
-        }*/
-        str+= "\n";
+        String str = "";
+        str += "Pos SmartToy: " + this.nodoActual.toString();
+        /*//str += "Posicion Ninio: " + this.getPosicionNinio().toString() + "\n";
+        String ultimoVisitado = visitados.get(visitados.size() - 1);
+       
+	       /* str+= "Visitados: \n";
+	        for(String s : visitados){
+	        	str += s + ", ";
+	        }
+	        str+= "\n";
+	        
+	        str+= "Obstaculos: \n";
+	        for(String s : obstaculos){
+	        	str += s + ", ";
+	        }
+	        str+= "\n";
+	        
+	        
+	        
+	       /* for(Nodo n : grafo.nodos.values()){
+	        	if(n.obstaculo)
+	        		str+= n.Id + ", ";
+	        str+= "\n";
+	
+	        }*/
         
         return str;
         

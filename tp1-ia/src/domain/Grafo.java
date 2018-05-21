@@ -35,8 +35,6 @@ public class Grafo {
 
 		crearNodos();
 		crearTransiciones();
-
-		
 	
 	}
 
@@ -44,9 +42,6 @@ public class Grafo {
 	
 	public void crearTerrenos(){
 	
-		
-		
-		
 	}
 	
 	
@@ -126,8 +121,6 @@ public class Grafo {
 					crearTransicion(nodoIzquierda,nodoActual);
 				}
 				
-				
-				
 			}
 		
 			letraAnterior = letra;
@@ -202,8 +195,6 @@ public class Grafo {
 			nodoClon.hayNinio = unNodo.hayNinio;
 			nodoClon.costo = unNodo.costo;
 			nodoClon.obstaculo = unNodo.obstaculo;
-			
-		
 		}
 		
 		

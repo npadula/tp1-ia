@@ -83,12 +83,12 @@ public class SmartToyPerception extends Perception {
     @Override
     public String toString() {
         String str = "";
-        
+        /*
         str += "Arriba - CAMINO: " + Boolean.toString(hayArriba) + " TERRENO: " + terrenoArriba + " OBSTACULO: " + Boolean.toString(obstaculoArriba) + "\n"; 
         str += "Abajo - CAMINO: " + Boolean.toString(hayAbajo) + " TERRENO: " + terrenoAbajo +  " OBSTACULO: " + Boolean.toString(obstaculoAbajo) + "\n";
         str += "Izquierda - CAMINO: " + Boolean.toString(hayIzquierda) + " TERRENO: " + terrenoIzq +   " OBSTACULO: " + Boolean.toString(obstaculoIzquierda) + "\n";
         str += "Derecha - CAMINO: " + Boolean.toString(hayDerecha) + " TERRENO: " + terrenoDer +  " OBSTACULO: " + Boolean.toString(obstaculoDerecha) +  "\n";
-        
+        */
         return str.toString();
     }
 

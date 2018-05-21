@@ -32,7 +32,5 @@ public class CostFunction implements IStepCostFunction {
 		Nodo proxNodo = estado.grafo.getNodo(estado.nodoActual, dir);
 		
 		return proxNodo.costo;
-		
-
     }
 }

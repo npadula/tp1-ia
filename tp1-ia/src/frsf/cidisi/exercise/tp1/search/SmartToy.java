@@ -28,13 +28,10 @@ public class SmartToy extends SearchBasedAgent {
         // Create the operators
         Vector<SearchAction> operators = new Vector<SearchAction>();
 
-        operators.addElement(new IrANodo("abajo"));
         operators.addElement(new IrANodo("izquierda"));
         operators.addElement(new IrANodo("arriba"));
+        operators.addElement(new IrANodo("abajo"));
         operators.addElement(new IrANodo("derecha"));
-        
-        
-        
         
 
         // Create the Problem which the agent will resolve
@@ -50,14 +47,14 @@ public class SmartToy extends SearchBasedAgent {
 
         // Create the search strategy
         //DepthFirstSearch strategy = new DepthFirstSearch();          
-    	//BreathFirstSearch strategy = new BreathFirstSearch();
-    	UniformCostSearch strategy = new UniformCostSearch(new CostFunction());
+    	BreathFirstSearch strategy = new BreathFirstSearch();
+    	//UniformCostSearch strategy = new UniformCostSearch(new CostFunction());
         // Create a Search object with the strategy
         Search searchSolver = new Search(strategy);
 
         /* Generate an XML file with the search tree. It can also be generated
          * in other formats like PDF with PDF_TREE */
-        searchSolver.setVisibleTree(Search.EFAIA_TREE);
+        searchSolver.setVisibleTree(Search.GRAPHVIZ_TREE);
 
         // Set the Search searchSolver.
         this.setSolver(searchSolver);
