@@ -17,7 +17,7 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 public class EstadoSmartToy extends SearchBasedAgentState {
 	
     public Grafo grafo;
-    private Nodo posicionNinio;
+    private Nodo posicionNinio;//aproximado
     public Nodo nodoActual;
     public ArrayList<String> visitados;
     public ArrayList<String> obstaculos;
@@ -33,9 +33,23 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 	    posicionNinio= new Nodo();
 	    visitados = new ArrayList<String>();
 	    obstaculos = new ArrayList<String>();
-	    
-
+	   
         this.initState();
+    }
+    
+    public EstadoSmartToy(boolean ventana){
+	    grafo= new Grafo(11,11);
+	    posicionNinio= new Nodo();//posicion aproximada
+	    visitados = new ArrayList<String>();
+	    obstaculos = new ArrayList<String>();
+        
+        this.initState();
+        
+        if(ventana){
+        	ventanita = new Principal(11 , 11 ,this.nodoActual,this.grafo.nodos.get(posicionNinio.Id),grafo.nodos.values()); 
+            //ventana = new Principal(columna, fila, this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio) , this.grafo.nodos.get(posNinioAprox)  , grafo.nodos.values(),nodosRapidos,nodosLentos);
+
+    	}
     }
     
     
@@ -82,67 +96,85 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         Nodo nodoActualizar;
         
         Nodo nodoActual = this.getNodoActual();
-        
+        //ARRIBA
         if(p.hayArriba){
         	nodoActualizar = grafo.getNodo(nodoActual, "arriba");
-        	if(p.terrenoArriba.equals("RAPIDO"))
-        		nodoActualizar.costo = 5; 
-        	else if(p.terrenoArriba.equals("LENTO"))
+        	if(p.terrenoArriba.equals("RAPIDO")){
+        		nodoActualizar.costo = 5;
+        		this.ventanita.graficarRapido(nodoActualizar);
+        	}
+        	else if(p.terrenoArriba.equals("LENTO")){
         		nodoActualizar.costo = 20;
-        	
-        	
+        		this.ventanita.graficarLento(nodoActualizar);
+        	}
+        		
         	if(p.obstaculoArriba){
         		if(!obstaculos.contains(nodoActualizar.Id))
         			obstaculos.add(nodoActualizar.Id);
-        		}
+        		this.ventanita.graficarBloqueado(nodoActualizar);
+        	}
         	
         }
-        
+        //ABAJO
         if(p.hayAbajo){
         	nodoActualizar = grafo.getNodo(nodoActual, "abajo");
-        	if(p.terrenoAbajo.equals("RAPIDO"))
+        	if(p.terrenoAbajo.equals("RAPIDO")){
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoAbajo.equals("LENTO"))
+        		this.ventanita.graficarRapido(nodoActualizar);
+        	}	
+        	else if(p.terrenoAbajo.equals("LENTO")){
         		nodoActualizar.costo = 20;
+        		this.ventanita.graficarLento(nodoActualizar);
+        	}
+        	
 
         	
         	if(p.obstaculoAbajo){
         		if(!obstaculos.contains(nodoActualizar.Id))
         			obstaculos.add(nodoActualizar.Id);
-        		
-        		}
+        		this.ventanita.graficarBloqueado(nodoActualizar);
+        	}
         }
         
-        
+        //IZQUIERDA
         if(p.hayIzquierda){
         	nodoActualizar = grafo.getNodo(nodoActual, "izquierda");
-        	if(p.terrenoIzq.equals("RAPIDO"))
+        	if(p.terrenoIzq.equals("RAPIDO")){
         		nodoActualizar.costo = 5; 
-        	else if(p.terrenoIzq.equals("LENTO"))
-        		nodoActualizar.costo = 20;
+        		this.ventanita.graficarRapido(nodoActualizar);
+        	}
+        	else if(p.terrenoIzq.equals("LENTO")){
+        		nodoActualizar.costo = 20;	
+        		this.ventanita.graficarLento(nodoActualizar);
+        	}
         	
         	
 
         	if(p.obstaculoIzquierda){
         		if(!obstaculos.contains(nodoActualizar.Id))
         			obstaculos.add(nodoActualizar.Id);
+        		this.ventanita.graficarBloqueado(nodoActualizar);
         	}
         }
         
         
-        
+        //DERECHA
         if(p.hayDerecha){
         	nodoActualizar = grafo.getNodo(nodoActual, "derecha");
-        	if(p.terrenoDer.equals("RAPIDO"))
-        		nodoActualizar.costo = 5; 
-        	else if(p.terrenoDer.equals("LENTO"))
+        	if(p.terrenoDer.equals("RAPIDO")){
+        		nodoActualizar.costo = 5;
+        		this.ventanita.graficarRapido(nodoActualizar);
+        	}
+        	else if(p.terrenoDer.equals("LENTO")){
         		nodoActualizar.costo = 20;
-        	
-
+        		this.ventanita.graficarLento(nodoActualizar);
+        	}
+        		
         	
         	if(p.obstaculoDerecha){
         		if(!obstaculos.contains(nodoActualizar.Id))
         			obstaculos.add(nodoActualizar.Id);
+        		this.ventanita.graficarBloqueado(nodoActualizar);
         	}
         	
         }
@@ -157,7 +189,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public void initState() {
-    	String posAgente = "C2";
+    	String posAgente = "G5";
     	String posNinioAprox = "H8";
     	
     	posicionNinio = grafo.nodos.get(posNinioAprox);
@@ -189,9 +221,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     			obstaculos.add(unNodo.Id);
     		}
     	}
-    	//ventanita = new Principal(nodoActual,posicionNinio);
-        
-    	
+       	
     }
 
     /**
@@ -351,5 +381,11 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     	
     	return result;
     }
+    
+	public void modificarPosicionSmartToy(Nodo destino) {
+		ventanita.actualizarPosicionAuto(destino);
+		
+	}
+
 }
 

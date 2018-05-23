@@ -54,8 +54,8 @@ public class EstadoCasa extends EnvironmentState {
     	grafo.nodos.get("K7").obstaculo = true;//paredes
     	
     	grafo.nodos.get("D8").obstaculo = true;
-    	grafo.nodos.get("E7").costo = 20;
-    	grafo.nodos.get("C7").costo = 5;
+    	grafo.nodos.get("G7").costo = 20;
+    	grafo.nodos.get("H10").costo = 5;
     }	
 
     /**
@@ -67,7 +67,7 @@ public class EstadoCasa extends EnvironmentState {
 	    ArrayList<Nodo> nodosLentos= new ArrayList<Nodo>();
 	    ArrayList<Nodo> nodosRapidos= new ArrayList<Nodo>();
     	
-	    String posAgente = "C2";
+	    String posAgente = "G5";
     	String posNinioAprox = "H8";
     	String posNinioReal = "K10";
         
@@ -82,8 +82,8 @@ public class EstadoCasa extends EnvironmentState {
         
     	 generarObstaculos();
     	 
-    	 nodosLentos.add(grafo.nodos.get("E7"));
-    	 nodosRapidos.add(grafo.nodos.get("C7"));
+    	 nodosLentos.add(grafo.nodos.get("H10"));
+    	 nodosRapidos.add(grafo.nodos.get("G7"));
      
         ventana = new Principal(columna, fila, this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio) , this.grafo.nodos.get(posNinioAprox)  , grafo.nodos.values(),nodosRapidos,nodosLentos);
         

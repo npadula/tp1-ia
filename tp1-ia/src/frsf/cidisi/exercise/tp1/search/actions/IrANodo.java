@@ -74,6 +74,8 @@ public class IrANodo extends SearchAction {
         	
         	environmentState.setPosicionSmartToy(proxNodo);
         	
+        	//cambia grafico
+        	agState.modificarPosicionSmartToy(proxNodo);
         	environmentState.modificarPosicionSmartToy(proxNodo); 
         	
         	return environmentState;
