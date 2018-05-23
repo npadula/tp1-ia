@@ -11,6 +11,8 @@ public class Grafo {
 	public int nodeSize = 25; //Tamaño del nodo en px
 	public int colSize;
 	public int rowSize;
+	public ArrayList<String> escaleras;
+	public HashMap<Par,Integer> costoEscaleras;
 	
 	
 	public Grafo(int col, int row){
@@ -19,13 +21,37 @@ public class Grafo {
 		
 		nodos = new HashMap<String,Nodo>();
 		transiciones = new HashMap<String,ArrayList<Nodo>>();
+		escaleras = new ArrayList<String>();
+		costoEscaleras = new HashMap<Par,Integer>();
 		
 		crearNodos();
 		crearTransiciones();
-
+		crearEscaleras();
+		
+	}
+	
+	private void crearEscaleras(){
+		crearEscalera("C2","D2");
 	}
 	
 	
+	private void crearEscalera(String arriba, String abajo) {
+		Par arribaAbajo = new Par(arriba,abajo);
+		Par abajoArriba = new Par(abajo,arriba);
+		
+		costoEscaleras.put(arribaAbajo,5);
+		costoEscaleras.put(abajoArriba,20);
+		
+	}
+	
+	public int getCostoEscalera(String origen, String destino){
+		return costoEscaleras.get(new Par(origen,destino));
+	}
+	
+	public boolean escaleraEntre(String origen, String destino){
+		return costoEscaleras.containsKey(new Par(origen,destino));
+	}
+
 	public Grafo(){
 		colSize = 10;
 		rowSize = 10;

@@ -31,6 +31,9 @@ public class CostFunction implements IStepCostFunction {
 		EstadoSmartToy estado = (EstadoSmartToy) node.getParent().getAgentState();
 		Nodo proxNodo = estado.grafo.getNodo(estado.nodoActual, dir);
 		
-		return proxNodo.costo;
+		if(estado.grafo.escaleraEntre(estado.nodoActual.Id, proxNodo.Id))
+			return estado.grafo.getCostoEscalera(estado.nodoActual.Id, proxNodo.Id);
+		else
+			return proxNodo.costo;
     }
 }
