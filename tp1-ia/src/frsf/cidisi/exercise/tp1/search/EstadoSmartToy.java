@@ -25,11 +25,13 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     public boolean hayNinio = false;
     public Principal ventanita;
     public double costoTotal = 0;
+    private int columnas = 11;
+    private int filas = 11;
 
     
     public EstadoSmartToy() {
     	
-	    grafo= new Grafo(11,11);
+	    grafo= new Grafo(columnas,filas);
 	    posicionNinio= new Nodo();
 	    visitados = new ArrayList<String>();
 	    obstaculos = new ArrayList<String>();
@@ -38,7 +40,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     }
     
     public EstadoSmartToy(boolean ventana){
-	    grafo= new Grafo(11,11);
+	    grafo= new Grafo(columnas,filas);
 	    posicionNinio= new Nodo();//posicion aproximada
 	    visitados = new ArrayList<String>();
 	    obstaculos = new ArrayList<String>();
@@ -46,7 +48,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         this.initState();
         
         if(ventana){
-        	ventanita = new Principal(11 , 11 ,this.nodoActual,this.grafo.nodos.get(posicionNinio.Id),grafo.nodos.values()); 
+        	ventanita = new Principal(grafo.colSize, grafo.rowSize ,this.nodoActual,this.grafo.nodos.get(posicionNinio.Id),grafo.nodos.values()); 
             //ventana = new Principal(columna, fila, this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio) , this.grafo.nodos.get(posNinioAprox)  , grafo.nodos.values(),nodosRapidos,nodosLentos);
 
     	}
@@ -191,8 +193,8 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public void initState() {
-    	String posAgente = "E2";
-    	String posNinioAprox = "H8";
+    	String posAgente = "K1";
+    	String posNinioAprox = "F4";
     	
     	posicionNinio = grafo.nodos.get(posNinioAprox);
     	nodoActual =  grafo.nodos.get(posAgente);
@@ -217,7 +219,13 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     	grafo.nodos.get("G11").obstaculo = true;
     	grafo.nodos.get("I7").obstaculo = true;
     	grafo.nodos.get("J7").obstaculo = true;
-    	grafo.nodos.get("K7").obstaculo = true;//paredes
+    	grafo.nodos.get("K7").obstaculo = true;
+    	grafo.nodos.get("D5").obstaculo = true;
+    	grafo.nodos.get("D6").obstaculo = true;
+    	grafo.nodos.get("E4").obstaculo = true;
+    	grafo.nodos.get("G4").obstaculo = true;
+    	grafo.nodos.get("H5").obstaculo = true;
+    	grafo.nodos.get("K7").obstaculo = true;
     	for(Nodo unNodo: grafo.nodos.values()){
     		if(unNodo.obstaculo){
     			obstaculos.add(unNodo.Id);
@@ -369,7 +377,10 @@ public class EstadoSmartToy extends SearchBasedAgentState {
     
     
     public boolean fueVisitado(String idNodo){
+    	
+    	
     	return visitados.contains(idNodo);
+    	
     }
     
     

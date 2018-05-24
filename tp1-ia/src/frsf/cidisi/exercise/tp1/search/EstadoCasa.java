@@ -51,10 +51,21 @@ public class EstadoCasa extends EnvironmentState {
     	grafo.nodos.get("G11").obstaculo = true;
     	grafo.nodos.get("I7").obstaculo = true;
     	grafo.nodos.get("J7").obstaculo = true;
-    	grafo.nodos.get("K7").obstaculo = true;//paredes
+    	grafo.nodos.get("K7").obstaculo = true;
+    	grafo.nodos.get("D5").obstaculo = true;
+    	grafo.nodos.get("D6").obstaculo = true;
+    	grafo.nodos.get("E4").obstaculo = true;
+    	grafo.nodos.get("G4").obstaculo = true;
+    	grafo.nodos.get("H5").obstaculo = true;
+    	grafo.nodos.get("K7").obstaculo = true;
+    	
+    	
+    	
+    	//paredes
     	
     	grafo.nodos.get("D8").obstaculo = true;
-    	grafo.nodos.get("H7").costo = 20;//lento
+    	grafo.nodos.get("G7").costo = 20;
+    	grafo.nodos.get("G3").costo = 20;//lento
     	grafo.nodos.get("H10").costo = 5;//rapido
     }	
 
@@ -67,9 +78,9 @@ public class EstadoCasa extends EnvironmentState {
 	    ArrayList<Nodo> nodosLentos= new ArrayList<Nodo>();
 	    ArrayList<Nodo> nodosRapidos= new ArrayList<Nodo>();
     	
-	    String posAgente = "E2";
-    	String posNinioAprox = "H8";
-    	String posNinioReal = "I10";
+	    String posAgente = "K1";
+    	String posNinioAprox = "F4";
+    	String posNinioReal = "A1";
         
     	this.posicionRealNinio = posNinioReal;
         grafo.nodos.get(posNinioReal).hayNinio = true; //posicion REAL del niño 
@@ -82,7 +93,8 @@ public class EstadoCasa extends EnvironmentState {
         
     	 generarObstaculos();
     	 
-    	 nodosLentos.add(grafo.nodos.get("H7"));
+    	 nodosLentos.add(grafo.nodos.get("G7"));
+    	 nodosLentos.add(grafo.nodos.get("G3"));
     	 nodosRapidos.add(grafo.nodos.get("H10"));
      
         ventana = new Principal(columna, fila, this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio) , this.grafo.nodos.get(posNinioAprox)  , grafo.nodos.values(),nodosRapidos,nodosLentos);
