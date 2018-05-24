@@ -80,6 +80,9 @@ public class EstadoSmartToy extends SearchBasedAgentState {
 			nuevoEstado.obstaculos.add(id);
 		}
 		
+		
+		
+		
 		nuevoEstado.posicionNinio = posicionNinio.clone();
 		nuevoEstado.hayNinio = this.hayNinio;
 		
@@ -104,7 +107,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         		this.ventanita.graficarRapido(nodoActualizar);
         	}
         	else if(p.terrenoArriba.equals("LENTO")){
-        		nodoActualizar.costo = 20;
+        		nodoActualizar.costo = 20000;
         		this.ventanita.graficarLento(nodoActualizar);
         	}
         		
@@ -123,11 +126,10 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         		this.ventanita.graficarRapido(nodoActualizar);
         	}	
         	else if(p.terrenoAbajo.equals("LENTO")){
-        		nodoActualizar.costo = 20;
+        		nodoActualizar.costo = 20000;
         		this.ventanita.graficarLento(nodoActualizar);
         	}
         	
-
         	
         	if(p.obstaculoAbajo){
         		if(!obstaculos.contains(nodoActualizar.Id))
@@ -144,7 +146,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         		this.ventanita.graficarRapido(nodoActualizar);
         	}
         	else if(p.terrenoIzq.equals("LENTO")){
-        		nodoActualizar.costo = 20;	
+        		nodoActualizar.costo = 20000;	
         		this.ventanita.graficarLento(nodoActualizar);
         	}
         	
@@ -166,7 +168,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
         		this.ventanita.graficarRapido(nodoActualizar);
         	}
         	else if(p.terrenoDer.equals("LENTO")){
-        		nodoActualizar.costo = 20;
+        		nodoActualizar.costo = 20000;
         		this.ventanita.graficarLento(nodoActualizar);
         	}
         		
@@ -189,7 +191,7 @@ public class EstadoSmartToy extends SearchBasedAgentState {
      */
     @Override
     public void initState() {
-    	String posAgente = "G5";
+    	String posAgente = "E2";
     	String posNinioAprox = "H8";
     	
     	posicionNinio = grafo.nodos.get(posNinioAprox);

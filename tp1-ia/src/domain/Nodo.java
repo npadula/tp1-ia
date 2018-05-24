@@ -11,7 +11,6 @@ public class Nodo {
 	public int costo = 10;
 	
 	public Nodo(){
-
 		this.Id= "";
 
 	}

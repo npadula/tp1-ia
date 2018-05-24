@@ -16,4 +16,6 @@ public class Par {
 		
 		return p.arriba.equals(this.arriba) && p.abajo.equals(this.abajo);
 	}
+	
+	
 }

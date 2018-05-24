@@ -48,7 +48,7 @@ public class Casa extends Environment {
          
          Nodo abajo = estadoCasa.getNodo(nodoActual, "abajo");
          if(abajo != null){
-        	p.obstaculoAbajo = abajo.obstaculo;
+        	 p.obstaculoAbajo = abajo.obstaculo;
         	 if(abajo.costo > 10)
          		 p.terrenoAbajo = "LENTO";
          	if(abajo.costo < 10)

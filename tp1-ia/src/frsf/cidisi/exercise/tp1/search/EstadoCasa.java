@@ -54,8 +54,8 @@ public class EstadoCasa extends EnvironmentState {
     	grafo.nodos.get("K7").obstaculo = true;//paredes
     	
     	grafo.nodos.get("D8").obstaculo = true;
-    	grafo.nodos.get("G7").costo = 20;
-    	grafo.nodos.get("H10").costo = 5;
+    	grafo.nodos.get("H7").costo = 20;//lento
+    	grafo.nodos.get("H10").costo = 5;//rapido
     }	
 
     /**
@@ -67,9 +67,9 @@ public class EstadoCasa extends EnvironmentState {
 	    ArrayList<Nodo> nodosLentos= new ArrayList<Nodo>();
 	    ArrayList<Nodo> nodosRapidos= new ArrayList<Nodo>();
     	
-	    String posAgente = "G5";
+	    String posAgente = "E2";
     	String posNinioAprox = "H8";
-    	String posNinioReal = "K10";
+    	String posNinioReal = "I10";
         
     	this.posicionRealNinio = posNinioReal;
         grafo.nodos.get(posNinioReal).hayNinio = true; //posicion REAL del niño 
@@ -82,10 +82,12 @@ public class EstadoCasa extends EnvironmentState {
         
     	 generarObstaculos();
     	 
-    	 nodosLentos.add(grafo.nodos.get("H10"));
-    	 nodosRapidos.add(grafo.nodos.get("G7"));
+    	 nodosLentos.add(grafo.nodos.get("H7"));
+    	 nodosRapidos.add(grafo.nodos.get("H10"));
      
         ventana = new Principal(columna, fila, this.PosicionSmartToy,this.grafo.nodos.get(this.posicionRealNinio) , this.grafo.nodos.get(posNinioAprox)  , grafo.nodos.values(),nodosRapidos,nodosLentos);
+        
+        ventana.agregarEscaleras(grafo.nodos.values(), grafo.escaleras);
         
     }
 

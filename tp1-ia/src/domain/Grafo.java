@@ -32,6 +32,8 @@ public class Grafo {
 	
 	private void crearEscaleras(){
 		crearEscalera("C2","D2");
+		escaleras.add("C2");
+		escaleras.add("D2");
 	}
 	
 	
@@ -222,7 +224,6 @@ public class Grafo {
 			nodoClon.costo = unNodo.costo;
 			nodoClon.obstaculo = unNodo.obstaculo;
 		}
-		
 		
 		return grafoClonado; 
 	  
